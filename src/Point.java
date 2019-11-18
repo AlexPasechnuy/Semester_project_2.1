@@ -1,3 +1,5 @@
+import javax.jws.Oneway;
+
 public class Point {
     double x, y;
 
@@ -22,5 +24,10 @@ public class Point {
     public void setPoint(double x, double y) {
         this.x = x;
         this.y = y;
+    }
+
+    @Override
+    public String toString(){
+        return "(" + (double)Math.round(x * 1000)/ 1000 + "; " + (double)Math.round(y * 1000)/ 1000 + ")";
     }
 }

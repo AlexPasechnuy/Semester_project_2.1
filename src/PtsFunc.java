@@ -49,4 +49,24 @@ public class PtsFunc extends AbsFunc {
         p1[pts.length] = new Point(x, y);
         pts = p1; // Тепер p вказує на новий масив
     }
+
+    public double getMinX(){
+        double min = pts[0].x;
+        for(int i = 1; i < size; i++){
+            if(pts[i].x < min){
+                min = pts[i].x;
+            }
+        }
+        return min;
+    }
+
+    public double getMaxX(){
+        double max = pts[0].x;
+        for(int i = 1; i < size; i++){
+            if(pts[i].x > max){
+                max = pts[i].x;
+            }
+        }
+        return max;
+    }
 }
