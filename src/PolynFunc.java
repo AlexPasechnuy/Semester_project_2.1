@@ -1,10 +1,8 @@
-package EqSolve.PolynomEq;
-
-public class PolynEq extends AbsPolynEq {
+public class PolynFunc extends AbsFunc {
     int n;
     double[] coefs;
 
-    PolynEq(double[] coefs) {
+    public PolynFunc(double[] coefs) {
         n = coefs.length - 1;
         this.coefs = coefs;
     }
@@ -17,6 +15,7 @@ public class PolynEq extends AbsPolynEq {
         return res;
     }
 
+    @Override
     void readFromFile(String filename) {
 
     }

@@ -1,18 +1,12 @@
-package EqSolve.SetOfPtsEq;
-
-import EqSolve.Point;
-
-public class PtsEq extends AbsPtsEq {
-    Point[] pts;
+public class PtsFunc extends AbsFunc {
+    private Point[] pts = {};
     int size;
 
-    PtsEq(double[] xs, double[] ys){
+    public PtsFunc(double[] xs, double[] ys){
         if(xs.length != ys.length){throw new RuntimeException("Different sizes of array");}
         size = xs.length;
-        pts = new Point[size];
         for(int i = 0; i < size; i++){
-            pts[i].setX(xs[i]);
-            pts[i].setY(ys[i]);
+            addPoint(xs[i], ys[i]);
         }
     }
 
@@ -21,18 +15,8 @@ public class PtsEq extends AbsPtsEq {
         return pts[i];
     }
 
+    @Override
     double solve(double x){
-        for(int i = 0; i < pts.length; i++){
-            if(pts[i].getX() == x){return pts[i].getY();}
-        }
-        return interpol(x);
-    }
-
-    void readFromFile(String filename){
-
-    }
-
-    double interpol(double x){
         double lagrangePol = 0;
 
         for (int i = 0; i < size; i++)
@@ -49,5 +33,20 @@ public class PtsEq extends AbsPtsEq {
         }
 
         return lagrangePol;
+    }
+
+    @Override
+    void readFromFile(String filename){
+
+    }
+
+    public void addPoint(double x, double y) {
+        // Створюємо масив, більший на один елемент:
+        Point[] p1 = new Point[pts.length + 1];
+        // Копіюємо всі елементи:
+        System.arraycopy(pts, 0, p1, 0, pts.length);
+        // Записуємо нову точку в останній елемент:
+        p1[pts.length] = new Point(x, y);
+        pts = p1; // Тепер p вказує на новий масив
     }
 }
