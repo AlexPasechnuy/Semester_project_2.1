@@ -22,21 +22,18 @@ public class TwoFuncWork {
     }
 
     Point[] findInters(double from, double to){
-        eps = (to - from)/1000;
+        eps = (to - from)/10000;
         Point[] inters = new Point[0];
         //dichotomy method for finding intersections
-//        for(; from < to; from+= eps){
-//            if(Math.abs(f.solve(from) - g.solve(from))< 0.5){
-//                inters = Arrays.copyOf(inters, inters.length + 1);
-//                double dich = dichotomy(from, from + eps);
-//                inters[inters.length - 1] = new Point(dich, g.solve(dich));
-//            }
-//        }
         for(;from < to; from += eps){
             double x = dichotomy(from, from+eps);
-            if(Math.abs(f.solve(x) - g.solve(x)) < eps*20){
+            if(Math.abs(f.solve(x) - g.solve(x)) < eps*3){
                 inters = Arrays.copyOf(inters, inters.length + 1);
                 inters[inters.length - 1] = new Point(x, g.solve(x));
+                while(Math.abs(f.solve(x) - g.solve(x)) < eps*3){
+                    x = dichotomy(from, from+eps);
+                    from += eps;
+                }
             }
         }
         return inters;
