@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<twoEqsWork>
+    <PtsEq>
+        <xs>-5 0 7</xs>
+        <ys>16 1 64</ys>
+    </PtsEq>
+    <PolynEq>
+        <coefs>1 1 -1 -1</coefs>
+    </PolynEq>
+</twoEqsWork>

@@ -35,11 +35,6 @@ public class PtsFunc extends AbsFunc {
         return lagrangePol;
     }
 
-    @Override
-    void readFromFile(String filename){
-
-    }
-
     public void addPoint(double x, double y) {
         // Створюємо масив, більший на один елемент:
         Point[] p1 = new Point[pts.length + 1];

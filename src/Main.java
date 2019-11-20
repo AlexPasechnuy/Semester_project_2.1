@@ -6,7 +6,7 @@ public class Main {
 //        double[] ys = {16,1,64};
 //        PtsFunc g = new PtsFunc(xs,ys);
 //        TwoFuncWork inter = new TwoFuncWork(f,g);
-//        Point[] interPoints = inter.findInters(g.getMinX(),g.getMaxX());
+//        Point[] interPoints = inter.findInters();
 //        for(int i = 0; i < interPoints.length; i++){
 //            System.out.println(interPoints[i].toString());
 //        }
@@ -19,9 +19,9 @@ public class Main {
 //        double[] ys = {-3,3,15,18};
 //        PtsFunc g = new PtsFunc(xs,ys);
 //        TwoFuncWork inter = new TwoFuncWork(f,g);
-//        Point[] interPoints = inter.findInters(g.getMinX(),g.getMaxX());
-//        for(int i = 0; i < interPoints.length; i++){
-//            System.out.println(interPoints[i].toString());
+//        Point[] interPoints1 = inter.findInters();
+//        for(int i = 0; i < interPoints1.length; i++){
+//            System.out.println(interPoints1[i].toString());
 //        }
         //////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -32,7 +32,7 @@ public class Main {
 //        double[] ys2 = {2,6,12,56};
 //        PtsFunc g = new PtsFunc(xs2,ys2);
 //        TwoFuncWork inter = new TwoFuncWork(f,g);
-//        Point[] interPoints = inter.findInters(-3,9);
+//        Point[] interPoints = inter.findInters();
 //        for(int i = 0; i < interPoints.length; i++){
 //            System.out.println(interPoints[i].toString());
 //        }
@@ -53,5 +53,34 @@ public class Main {
 //        for(int i = 0; i < interPoints.length; i++){
 //            System.out.println(interPoints[i].toString());
 //        }
+
+        System.out.println("\nTwo roots: ");
+        TwoFuncWork fw = new TwoFuncWork();
+        fw.readFromFile("eqs1.xml");
+        Point[] interPoints = fw.findInters();
+        for(int i = 0; i < interPoints.length; i++){
+            System.out.println(interPoints[i].toString());
+        }
+
+        System.out.println("\nTwo roots: ");
+        fw.readFromFile("eqs2.xml");
+        interPoints = fw.findInters();
+        for(int i = 0; i < interPoints.length; i++){
+            System.out.println(interPoints[i].toString());
+        }
+
+        System.out.println("\nNo roots: ");
+        fw.readFromFile("eqs3.xml");
+        interPoints = fw.findInters();
+        for(int i = 0; i < interPoints.length; i++){
+            System.out.println(interPoints[i].toString());
+        }
+
+        System.out.println("\nOne roots: ");
+        fw.readFromFile("eqs4.xml");
+        interPoints = fw.findInters();
+        for(int i = 0; i < interPoints.length; i++){
+            System.out.println(interPoints[i].toString());
+        }
     }
 }

@@ -15,11 +15,6 @@ public class PolynFunc extends AbsFunc {
         return res;
     }
 
-    @Override
-    void readFromFile(String filename) {
-
-    }
-
     double getN(){return n;}
 
     double getCoef(int i){
