@@ -1,3 +1,10 @@
+import FindIntersMethods.Dichotomy;
+import FindIntersMethods.FindInters;
+import Functions.AbsFunc;
+import Functions.Point;
+import Functions.PolynFunc;
+import Functions.PtsFunc;
+import InterpolMethods.LangrangePolyn;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -12,6 +19,7 @@ import java.util.StringTokenizer;
 public class TwoFuncWork {
     AbsFunc f,g;
     double eps;
+    FindInters findInters = new Dichotomy();
 
     private double getFrom(){
         if (f instanceof PtsFunc){
@@ -37,43 +45,48 @@ public class TwoFuncWork {
         }
     }
 
-    TwoFuncWork(AbsFunc f, AbsFunc g){
+    TwoFuncWork(AbsFunc f, AbsFunc g, FindInters findInters){
         this.f = f;
         this.g = g;
+        this.findInters = findInters;
     }
 
     TwoFuncWork(){  }
 
-    public double dichotomy(double from, double to){
-        double eps = this.eps/10000;
-        double x = 0;
-        while(Math.abs(from - to)>eps){
-            double c = (from + to)/2;
-            if(f.solve(from) * g.solve(c)<=0)   to = c;
-            else    from = c;
-            x = (from + to)/2;
-        }
-        return x;
-    }
 
-    Point[] findInters(){
-        double from = getFrom();
-        double to = getTo();
-        eps = (to - from)/10000;
+    Point[] findInters(double from, double to){
+        from = Math.max(getFrom(), from);
+        to = Math.min(getTo(), to);
+        eps = (to - from)/100;
         Point[] inters = new Point[0];
         //dichotomy method for finding intersections
         for(;from < to; from += eps){
-            double x = dichotomy(from, from+eps);
+            double x = findInters.solve(from, from+eps, f, g);
             if(Math.abs(f.solve(x) - g.solve(x)) < eps*3){
                 inters = Arrays.copyOf(inters, inters.length + 1);
                 inters[inters.length - 1] = new Point(x, g.solve(x));
                 while(Math.abs(f.solve(x) - g.solve(x)) < eps*3){
-                    x = dichotomy(from, from+eps);
+                    x = findInters.solve(from, from+eps, f, g);
                     from += eps;
                 }
             }
         }
         return inters;
+    }
+
+
+    Point[] findInters(){
+        return findInters(getFrom(), getTo());
+    }
+
+    private double[] stringToArr(String str){
+        double[] res = new double[0];
+        StringTokenizer stx = new StringTokenizer(str);
+        while(stx.hasMoreTokens()){
+            res = Arrays.copyOf(res, res.length + 1);
+            res[res.length - 1] = Double.parseDouble(stx.nextToken());
+        }
+        return res;
     }
 
     public void readFromFile(String filename){
@@ -97,30 +110,8 @@ public class TwoFuncWork {
             elem = (Element) nNode;
             String coefs = elem.getElementsByTagName("coefs").item(0).getTextContent();
 
-            double[] x = new double[0];
-            double[] y = new double[0];
-            double[] cs = new double[0];
-
-            StringTokenizer stx = new StringTokenizer(xs);
-            while(stx.hasMoreTokens()){
-                x = Arrays.copyOf(x, x.length + 1);
-                x[x.length - 1] = Double.parseDouble(stx.nextToken());
-            }
-
-            stx = new StringTokenizer(ys);
-            while(stx.hasMoreTokens()){
-                y = Arrays.copyOf(y, y.length + 1);
-                y[y.length - 1] = Double.parseDouble(stx.nextToken());
-            }
-
-            stx = new StringTokenizer(coefs);
-            while(stx.hasMoreTokens()){
-                cs = Arrays.copyOf(cs, cs.length + 1);
-                cs[cs.length - 1] = Double.parseDouble(stx.nextToken());
-            }
-
-            f = new PtsFunc(x,y);
-            g = new PolynFunc(cs);
+            f = new PtsFunc(stringToArr(xs),stringToArr(ys), new LangrangePolyn());
+            g = new PolynFunc(stringToArr(coefs));
 
         } catch (Exception e) {
             e.printStackTrace();

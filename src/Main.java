@@ -1,3 +1,5 @@
+import Functions.Point;
+
 public class Main {
     public static void main(String[] args) {
 //        double[] coefs = {1,1,-1,-1};
@@ -53,7 +55,7 @@ public class Main {
 //        for(int i = 0; i < interPoints.length; i++){
 //            System.out.println(interPoints[i].toString());
 //        }
-
+////////////////////////////////////////////////////////////////////////////////
         System.out.println("\nTwo roots: ");
         TwoFuncWork fw = new TwoFuncWork();
         fw.readFromFile("eqs1.xml");
@@ -76,10 +78,10 @@ public class Main {
             System.out.println(interPoints[i].toString());
         }
 
-        System.out.println("\nOne roots: ");
+        System.out.println("\nOne root: ");
         fw.readFromFile("eqs4.xml");
         interPoints = fw.findInters();
-        for(int i = 0; i < interPoints.length; i++){
+        for(int i = 0; i < interPoints.length; i++) {
             System.out.println(interPoints[i].toString());
         }
     }

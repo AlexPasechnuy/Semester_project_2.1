@@ -1,13 +1,19 @@
+package Functions;
+
+import InterpolMethods.Interpol;
+
 public class PtsFunc extends AbsFunc {
     private Point[] pts = {};
     int size;
+    Interpol inter;
 
-    public PtsFunc(double[] xs, double[] ys){
+    public PtsFunc(double[] xs, double[] ys, Interpol inter){
         if(xs.length != ys.length){throw new RuntimeException("Different sizes of array");}
         size = xs.length;
         for(int i = 0; i < size; i++){
             addPoint(xs[i], ys[i]);
         }
+        this.inter = inter;
     }
 
     Point getPoint(int i){
@@ -16,23 +22,8 @@ public class PtsFunc extends AbsFunc {
     }
 
     @Override
-    double solve(double x){
-        double lagrangePol = 0;
-
-        for (int i = 0; i < size; i++)
-        {
-            double basicsPol = 1;
-            for (int j = 0; j < size; j++)
-            {
-                if (j != i)
-                {
-                    basicsPol *= (x - pts[j].getX())/(pts[i].getX() - pts[j].getX());
-                }
-            }
-            lagrangePol += basicsPol * pts[i].getY();
-        }
-
-        return lagrangePol;
+    public double solve(double x){
+        return inter.solve(x, pts);
     }
 
     public void addPoint(double x, double y) {

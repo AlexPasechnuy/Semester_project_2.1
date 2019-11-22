@@ -1,3 +1,5 @@
+package Functions;
+
 public class PolynFunc extends AbsFunc {
     int n;
     double[] coefs;
@@ -7,7 +9,7 @@ public class PolynFunc extends AbsFunc {
         this.coefs = coefs;
     }
 
-    double solve(double x) {
+    public double solve(double x) {
         double res = coefs[n];
         for (int i = 0; i < n; i++) {
             res += coefs[i] * Math.pow(x, n - i);
