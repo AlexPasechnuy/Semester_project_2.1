@@ -17,9 +17,9 @@ public class PolynFunc extends AbsFunc {
         return res;
     }
 
-    double getN(){return n;}
+    public double getFuncPower(){return n;}
 
-    double getCoef(int i){
+    public double getCoef(int i){
         if (i < 0 || i > n){throw new RuntimeException("Wrong index");}
         return coefs[i];
     }

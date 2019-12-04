@@ -84,5 +84,13 @@ public class Main {
         for(int i = 0; i < interPoints.length; i++) {
             System.out.println(interPoints[i].toString());
         }
+        fw.writeToFile("res.xml");
+
+        System.out.println("\nFrom filled xml: ");
+        fw.readFromFile("res.xml");
+        interPoints = fw.findInters();
+        for(int i = 0; i < interPoints.length; i++) {
+            System.out.println(interPoints[i].toString());
+        }
     }
 }

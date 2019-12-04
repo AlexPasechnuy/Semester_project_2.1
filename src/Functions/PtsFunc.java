@@ -7,6 +7,8 @@ public class PtsFunc extends AbsFunc {
     int size;
     Interpol inter;
 
+    public int getPtsNum(){return pts.length;}
+
     public PtsFunc(double[] xs, double[] ys, Interpol inter){
         if(xs.length != ys.length){throw new RuntimeException("Different sizes of array");}
         size = xs.length;
@@ -16,7 +18,7 @@ public class PtsFunc extends AbsFunc {
         this.inter = inter;
     }
 
-    Point getPoint(int i){
+    public Point getPoint(int i){
         if(i < 0 || i >= size){throw new RuntimeException("Wrong index!!!");}
         return pts[i];
     }
@@ -25,6 +27,7 @@ public class PtsFunc extends AbsFunc {
     public double solve(double x){
         return inter.solve(x, pts);
     }
+
 
     public void addPoint(double x, double y) {
         // Створюємо масив, більший на один елемент:

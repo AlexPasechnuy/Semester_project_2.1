@@ -12,7 +12,13 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
@@ -20,6 +26,7 @@ public class TwoFuncWork {
     AbsFunc f,g;
     double eps;
     FindInters findInters = new Dichotomy();
+    int ptsNum, coefsNum;                       //numbers of points and coefficients
 
     private double getFrom(){
         if (f instanceof PtsFunc){
@@ -116,5 +123,55 @@ public class TwoFuncWork {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void writeToFile(String filename){
+            try {
+                PtsFunc ptsWrite = (PtsFunc) f;
+                PolynFunc polynWrite = (PolynFunc) g;
+                DocumentBuilderFactory dbf;
+                DocumentBuilder db;
+                Document doc;
+
+                dbf = DocumentBuilderFactory.newInstance();
+                db = dbf.newDocumentBuilder();
+                doc = db.newDocument();
+
+                Element twoFuncts = doc.createElement("twoEqsWork");
+
+                Element ptsEq = doc.createElement("PtsEq");
+                Element polynEq = doc.createElement("PolynEq");
+                //filling ptseEq
+                String xString = "";
+                String yString = "";
+                for(int  i = 0; i < ptsWrite.getPtsNum(); i++){
+                    xString += ptsWrite.getPoint(i).getX() + " ";
+                    yString += ptsWrite.getPoint(i).getY() + " ";
+                }
+                Element xs = doc.createElement("xs");
+                xs.setTextContent(xString);
+                Element ys = doc.createElement("ys");
+                ys.setTextContent(yString);
+                ptsEq.appendChild(xs);
+                ptsEq.appendChild(ys);
+                //filling polynEq
+                String coefsString = "";
+                for(int  i = 0; i < polynWrite.getFuncPower() + 1; i++){
+                    coefsString += polynWrite.getCoef(i) + " ";
+                }
+                Element coefs = doc.createElement("coefs");
+                coefs.setTextContent(coefsString);
+                polynEq.appendChild(coefs);
+
+                twoFuncts.appendChild(ptsEq);
+                twoFuncts.appendChild(polynEq);
+                doc.appendChild(twoFuncts);
+
+                Transformer transformer = TransformerFactory.newInstance().newTransformer();
+                transformer.transform(new DOMSource(doc),
+                        new StreamResult(new FileOutputStream(new File(filename))));
+            }catch (Exception ex){
+                ex.printStackTrace();
+            }
     }
 }
