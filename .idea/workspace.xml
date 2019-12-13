@@ -3,17 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7074dec2-93a0-4f8b-973b-4b4eb2ac5710" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eqs1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eqs1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eqs2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eqs2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eqs3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eqs3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eqs4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eqs4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FindIntersMethods/Dichotomy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FindIntersMethods/Dichotomy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FindIntersMethods/FindInters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FindIntersMethods/FindInters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Functions/AbsFunc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Functions/AbsFunc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Functions/PolynFunc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Functions/PolynFunc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Functions/PtsFunc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Functions/PtsFunc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sem_proj_2.1/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sem_proj_2.1/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sem_proj_2.1/TwoFuncWork.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sem_proj_2.1/TwoFuncWork.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TwoFuncWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TwoFuncWork.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TwoFuncWork.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-363">
-              <caret line="121" column="36" lean-forward="true" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="36" />
+            <state relative-caret-position="484">
+              <caret line="96" column="38" selection-start-line="96" selection-start-column="38" selection-end-line="96" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,7 +55,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="249">
@@ -178,13 +169,13 @@
         <option value="$PROJECT_DIR$/src/Functions/PtsFunc.java" />
         <option value="$PROJECT_DIR$/src/FindIntersMethods/Dichotomy.java" />
         <option value="$PROJECT_DIR$/src/FindIntersMethods/FindInters.java" />
-        <option value="$PROJECT_DIR$/src/TwoFuncWork.java" />
         <option value="$PROJECT_DIR$/src/Functions/PolynFunc.java" />
         <option value="$PROJECT_DIR$/eqs1.xml" />
         <option value="$PROJECT_DIR$/eqs2.xml" />
         <option value="$PROJECT_DIR$/eqs3.xml" />
         <option value="$PROJECT_DIR$/eqs4.xml" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/TwoFuncWork.java" />
       </list>
     </option>
   </component>
@@ -237,7 +228,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576261943338" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576265351238" />
     <property name="last_opened_file_path" value="U:/Sem_proj_2.1" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -339,18 +330,17 @@
       <workItem from="1575530176430" duration="327000" />
       <workItem from="1575537386404" duration="599000" />
       <workItem from="1575538640214" duration="419000" />
-      <workItem from="1576254795573" duration="5825000" />
+      <workItem from="1576254795573" duration="7206000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63471000" />
+    <option name="totallyTimeSpent" value="64852000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1087" y="419" width="1094" height="967" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3549323" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3549323" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -359,7 +349,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32977527" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3020962" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3020962" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5561036" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -535,16 +525,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TwoFuncWork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-363">
-          <caret line="121" column="36" lean-forward="true" selection-start-line="121" selection-start-column="36" selection-end-line="121" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eqs1.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -584,6 +564,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
           <caret line="92" column="21" lean-forward="true" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TwoFuncWork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="96" column="38" selection-start-line="96" selection-start-column="38" selection-end-line="96" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

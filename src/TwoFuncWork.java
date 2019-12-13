@@ -27,7 +27,17 @@ public class TwoFuncWork {
     AbsFunc f,g;
     double eps;
     FindInters findInters = new Dichotomy();
-    int ptsNum, coefsNum;                       //numbers of points and coefficients
+    double minY;
+    double maxY;
+
+    private void checkBoundY(double arg){
+        if(arg < minY){minY=arg;}
+        else if(arg > maxY){maxY=arg;}
+    }
+
+    public double getMinY(){return minY;}
+
+    public double getMaxY(){return maxY;}
 
     private double getFrom(){
         if (f instanceof PtsFunc){
@@ -65,16 +75,26 @@ public class TwoFuncWork {
     Point[] findInters(double from, double to) throws WrongFunctionFormatException {
         from = Math.max(getFrom(), from);
         to = Math.min(getTo(), to);
+        double fRes, gRes;
+        minY = maxY = f.solve(from);
         eps = (to - from)/100;
         Point[] inters = new Point[0];
         //dichotomy method for finding intersections
         for(;from < to; from += eps){
             double x = findInters.solve(from, from+eps, f, g);
-            if(Math.abs(f.solve(x) - g.solve(x)) < eps*3){
+            fRes = f.solve(x);
+            gRes = g.solve(x);
+            checkBoundY(fRes);
+            checkBoundY(gRes);
+            if(Math.abs(fRes - gRes) < eps*3){
                 inters = Arrays.copyOf(inters, inters.length + 1);
-                inters[inters.length - 1] = new Point(x, g.solve(x));
-                while(Math.abs(f.solve(x) - g.solve(x)) < eps*3){
+                inters[inters.length - 1] = new Point(x, gRes);
+                while(Math.abs(fRes - gRes) < eps*3){
+                    checkBoundY(fRes);
+                    checkBoundY(gRes);
                     x = findInters.solve(from, from+eps, f, g);
+                    fRes = f.solve(x);
+                    gRes = g.solve(x);
                     from += eps;
                 }
             }
