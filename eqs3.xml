@@ -5,6 +5,6 @@
         <ys>84 52 12</ys>
     </PtsEq>
     <PolynEq>
-        <coefs>3 3 0</coefs>
+        <func>3*Math.pow(x,2)+3*x</func>
     </PolynEq>
 </twoEqsWork>

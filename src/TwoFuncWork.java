@@ -1,3 +1,4 @@
+import Exceptions.WrongFunctionFormatException;
 import FindIntersMethods.Dichotomy;
 import FindIntersMethods.FindInters;
 import Functions.AbsFunc;
@@ -61,7 +62,7 @@ public class TwoFuncWork {
     TwoFuncWork(){  }
 
 
-    Point[] findInters(double from, double to){
+    Point[] findInters(double from, double to) throws WrongFunctionFormatException {
         from = Math.max(getFrom(), from);
         to = Math.min(getTo(), to);
         eps = (to - from)/100;
@@ -82,7 +83,7 @@ public class TwoFuncWork {
     }
 
 
-    Point[] findInters(){
+    Point[] findInters() throws WrongFunctionFormatException{
         return findInters(getFrom(), getTo());
     }
 
@@ -115,10 +116,10 @@ public class TwoFuncWork {
 
             nNode = nList.item(0);
             elem = (Element) nNode;
-            String coefs = elem.getElementsByTagName("coefs").item(0).getTextContent();
+            String func = elem.getElementsByTagName("func").item(0).getTextContent();
 
             f = new PtsFunc(stringToArr(xs),stringToArr(ys), new LangrangePolyn());
-            g = new PolynFunc(stringToArr(coefs));
+            g = new PolynFunc(func);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -154,13 +155,8 @@ public class TwoFuncWork {
                 ys.setTextContent(yString);
                 ptsEq.appendChild(xs);
                 ptsEq.appendChild(ys);
-                //filling polynEq
-                String coefsString = "";
-                for(int  i = 0; i < polynWrite.getFuncPower() + 1; i++){
-                    coefsString += polynWrite.getCoef(i) + " ";
-                }
-                Element coefs = doc.createElement("coefs");
-                coefs.setTextContent(coefsString);
+                Element coefs = doc.createElement("func");
+                coefs.setTextContent(polynWrite.getFunc());
                 polynEq.appendChild(coefs);
 
                 twoFuncts.appendChild(ptsEq);

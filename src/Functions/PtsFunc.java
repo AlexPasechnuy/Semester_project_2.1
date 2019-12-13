@@ -30,13 +30,10 @@ public class PtsFunc extends AbsFunc {
 
 
     public void addPoint(double x, double y) {
-        // Створюємо масив, більший на один елемент:
         Point[] p1 = new Point[pts.length + 1];
-        // Копіюємо всі елементи:
         System.arraycopy(pts, 0, p1, 0, pts.length);
-        // Записуємо нову точку в останній елемент:
         p1[pts.length] = new Point(x, y);
-        pts = p1; // Тепер p вказує на новий масив
+        pts = p1;
     }
 
     public double getMinX(){

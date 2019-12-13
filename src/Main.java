@@ -1,3 +1,4 @@
+import Exceptions.WrongFunctionFormatException;
 import Functions.Point;
 
 public class Main {
@@ -56,41 +57,45 @@ public class Main {
 //            System.out.println(interPoints[i].toString());
 //        }
 ////////////////////////////////////////////////////////////////////////////////
-        System.out.println("\nTwo roots: ");
-        TwoFuncWork fw = new TwoFuncWork();
-        fw.readFromFile("eqs1.xml");
-        Point[] interPoints = fw.findInters();
-        for(int i = 0; i < interPoints.length; i++){
-            System.out.println(interPoints[i].toString());
-        }
+        try {
+            System.out.println("\nTwo roots: ");
+            TwoFuncWork fw = new TwoFuncWork();
+            fw.readFromFile("eqs1.xml");
+            Point[] interPoints = fw.findInters();
+            for (int i = 0; i < interPoints.length; i++) {
+                System.out.println(interPoints[i].toString());
+            }
 
-        System.out.println("\nTwo roots: ");
-        fw.readFromFile("eqs2.xml");
-        interPoints = fw.findInters();
-        for(int i = 0; i < interPoints.length; i++){
-            System.out.println(interPoints[i].toString());
-        }
+            System.out.println("\nTwo roots: ");
+            fw.readFromFile("eqs2.xml");
+            interPoints = fw.findInters();
+            for (int i = 0; i < interPoints.length; i++) {
+                System.out.println(interPoints[i].toString());
+            }
 
-        System.out.println("\nNo roots: ");
-        fw.readFromFile("eqs3.xml");
-        interPoints = fw.findInters();
-        for(int i = 0; i < interPoints.length; i++){
-            System.out.println(interPoints[i].toString());
-        }
+            System.out.println("\nNo roots: ");
+            fw.readFromFile("eqs3.xml");
+            interPoints = fw.findInters();
+            for (int i = 0; i < interPoints.length; i++) {
+                System.out.println(interPoints[i].toString());
+            }
 
-        System.out.println("\nOne root: ");
-        fw.readFromFile("eqs4.xml");
-        interPoints = fw.findInters();
-        for(int i = 0; i < interPoints.length; i++) {
-            System.out.println(interPoints[i].toString());
-        }
-        fw.writeToFile("res.xml");
+            System.out.println("\nOne root: ");
+            fw.readFromFile("eqs4.xml");
+            interPoints = fw.findInters();
+            for (int i = 0; i < interPoints.length; i++) {
+                System.out.println(interPoints[i].toString());
+            }
+            fw.writeToFile("res.xml");
 
-        System.out.println("\nFrom filled xml: ");
-        fw.readFromFile("res.xml");
-        interPoints = fw.findInters();
-        for(int i = 0; i < interPoints.length; i++) {
-            System.out.println(interPoints[i].toString());
+            System.out.println("\nFrom just created xml: ");
+            fw.readFromFile("res.xml");
+            interPoints = fw.findInters();
+            for (int i = 0; i < interPoints.length; i++) {
+                System.out.println(interPoints[i].toString());
+            }
+        }catch(WrongFunctionFormatException ex){
+            System.out.println(ex.getMessage());
         }
     }
 }
