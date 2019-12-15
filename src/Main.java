@@ -1,3 +1,5 @@
+import Functions.PtsFunc;
+import TwoFuncWork.TwoFuncWork;
 import Exceptions.WrongFunctionFormatException;
 import Functions.Point;
 

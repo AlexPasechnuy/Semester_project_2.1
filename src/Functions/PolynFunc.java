@@ -13,6 +13,8 @@ public class PolynFunc extends AbsFunc {
         this.func = func;
     }
 
+    public PolynFunc() {    }
+
     public String getFunc(){return func;}
 
     public double solve(double x)throws WrongFunctionFormatException{

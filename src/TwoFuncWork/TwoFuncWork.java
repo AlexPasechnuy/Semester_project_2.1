@@ -1,3 +1,5 @@
+package TwoFuncWork;
+
 import Exceptions.WrongFunctionFormatException;
 import FindIntersMethods.Dichotomy;
 import FindIntersMethods.FindInters;
@@ -39,6 +41,10 @@ public class TwoFuncWork {
 
     public double getMaxY(){return maxY;}
 
+    public AbsFunc getF(){return f;}
+
+    public AbsFunc getG(){return g;}
+
     private double getFrom(){
         if (f instanceof PtsFunc){
             return ((PtsFunc) f).getMinX();
@@ -63,16 +69,16 @@ public class TwoFuncWork {
         }
     }
 
-    TwoFuncWork(AbsFunc f, AbsFunc g, FindInters findInters){
+    public TwoFuncWork(AbsFunc f, AbsFunc g, FindInters findInters){
         this.f = f;
         this.g = g;
         this.findInters = findInters;
     }
 
-    TwoFuncWork(){  }
+    public TwoFuncWork(){  }
 
 
-    Point[] findInters(double from, double to) throws WrongFunctionFormatException {
+    public Point[] findInters(double from, double to) throws WrongFunctionFormatException {
         from = Math.max(getFrom(), from);
         to = Math.min(getTo(), to);
         double fRes, gRes;
@@ -103,7 +109,7 @@ public class TwoFuncWork {
     }
 
 
-    Point[] findInters() throws WrongFunctionFormatException{
+    public Point[] findInters() throws WrongFunctionFormatException{
         return findInters(getFrom(), getTo());
     }
 

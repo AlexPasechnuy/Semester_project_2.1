@@ -18,6 +18,8 @@ public class PtsFunc extends AbsFunc {
         this.inter = inter;
     }
 
+    public PtsFunc(){    }
+
     public Point getPoint(int i){
         if(i < 0 || i >= size){throw new RuntimeException("Wrong index!!!");}
         return pts[i];
@@ -54,5 +56,12 @@ public class PtsFunc extends AbsFunc {
             }
         }
         return max;
+    }
+
+    public void setPts(Point[] pts){this.pts = pts;}
+
+    public void setPoint(int i, double x, double y){
+        if(i < 0 || i >= size){throw new RuntimeException("Wrong index!!!");}
+        pts[i]= new Point(x,y);
     }
 }

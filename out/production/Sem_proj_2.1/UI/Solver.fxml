@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="724.0" prefWidth="902.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="UI.SolverConroller">
+<BorderPane minHeight="600.0" minWidth="500.0" prefHeight="626.0" prefWidth="845.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="UI.SolverConroller">
   <center>
-    <Pane prefHeight="200.0" prefWidth="200.0">
+    <BorderPane fx:id="graphPane" prefHeight="200.0" prefWidth="200.0">
+      <center>
+        <LineChart id="LineChartNxN">
+          <xAxis>
+            <NumberAxis side="BOTTOM" />
+          </xAxis>
+          <yAxis>
+            <NumberAxis side="LEFT" />
+          </yAxis>
+        </LineChart>
+      </center>
+    </BorderPane>
+  </center>
+  <left>
+    <Pane prefHeight="626.0" prefWidth="361.0">
       <children>
-        <TextField layoutX="14.0" layoutY="70.0" prefHeight="29.9609375" prefWidth="251.0" promptText="X coordinates of points" />
-        <TextField layoutX="14.0" layoutY="125.0" prefHeight="29.9609375" prefWidth="251.0" promptText="Y coordinates of points" />
-        <MenuBar layoutX="0.0" layoutY="2.0">
+        <MenuBar layoutX="0.0" layoutY="0.0">
           <menus>
             <Menu mnemonicParsing="false" text="File">
               <items>
-                <MenuItem mnemonicParsing="false" text="New" />
-                <MenuItem mnemonicParsing="false" text="Open" />
-                <MenuItem mnemonicParsing="false" text="Save as" />
+                <MenuItem mnemonicParsing="false" text="Close" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Edit">
@@ -34,7 +46,35 @@
             </Menu>
           </menus>
         </MenuBar>
+        <TableView fx:id="pointsTable" editable="true" focusTraversable="true" layoutX="17.0" layoutY="66.0" prefHeight="200.0" prefWidth="150.0">
+          <columns>
+            <TableColumn prefWidth="75.0" text="X" fx:id="xPts" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Y" fx:id="yPts" />
+          </columns>
+        </TableView>
+        <Button fx:id="addPtBtn" layoutX="182.0" layoutY="153.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="150.0" text="Add point">
+          <font>
+            <Font size="15.0" fx:id="x2" />
+          </font>
+        </Button>
+        <Text layoutX="17.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First function:">
+          <font>
+            <Font size="16.0" fx:id="x1" />
+          </font>
+        </Text>
+        <Separator layoutX="17.0" layoutY="280.0" prefWidth="330.0" />
+        <Text font="$x1" layoutX="17.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Second function:" />
+        <TextField fx:id="secondFunc" layoutX="14.0" layoutY="326.0" prefHeight="25.0" prefWidth="318.0" promptText="Enter function here" />
+        <Separator layoutX="17.0" layoutY="368.0" prefWidth="330.0" />
+        <TableView fx:id="resTable" layoutX="17.0" layoutY="412.0" prefHeight="200.0" prefWidth="150.0">
+          <columns>
+            <TableColumn prefWidth="75.0" text="X" fx:id="xRes" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Y" fx:id="yRes" />
+          </columns>
+        </TableView>
+        <Text font="$x1" layoutX="17.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Roots:" />
+        <Button fx:id="Solve" font="$x2" layoutX="182.0" layoutY="499.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="150.0" text="Solve" />
       </children>
     </Pane>
-  </center>
+  </left>
 </BorderPane>
