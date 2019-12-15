@@ -1,6 +1,9 @@
 package UI;
 
+import Exceptions.WrongFunctionFormatException;
+import FindIntersMethods.Dichotomy;
 import Functions.AbsFunc;
+import Functions.Point;
 import Functions.PolynFunc;
 import Functions.PtsFunc;
 import TwoFuncWork.TwoFuncWork;
@@ -13,8 +16,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.FileChooser;
 import javafx.util.converter.DoubleStringConverter;
 
+import javax.xml.bind.JAXBException;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -33,7 +40,7 @@ public class SolverConroller implements Initializable {
     }
 
     PtsFunc f = new PtsFunc();
-    AbsFunc g = new PolynFunc();
+    PolynFunc g = new PolynFunc();
     TwoFuncWork fw = new TwoFuncWork();
     ObservableList<PtsRow> firstFuncPts;
 
@@ -67,8 +74,14 @@ public class SolverConroller implements Initializable {
         yPts.setOnEditCommit(t->updateY(t));
     }
 
-    private void resTableInit(){
-
+    private void resTableInit(Point[] results){
+        ObservableList<PtsRow> res= FXCollections.observableArrayList();
+        for(int i = 0; i < results.length; i++) {
+            res.add(new PtsRow((double)Math.round(results[i].getX() * 1000)/ 1000, (double)Math.round(results[i].getY() * 1000)/ 1000));
+        }
+        resTable.setItems(res);
+        xRes.setCellValueFactory(new PropertyValueFactory<>("x"));
+        yRes.setCellValueFactory(new PropertyValueFactory<>("y"));
     }
 
     private void updateX(TableColumn.CellEditEvent<PtsRow, Double> t) {
@@ -77,6 +90,59 @@ public class SolverConroller implements Initializable {
 
     private void updateY(TableColumn.CellEditEvent<PtsRow, Double> t) {
         firstFuncPts.get(t.getTablePosition().getRow()).setY(t.getNewValue());
-        System.out.println(t.getNewValue());
+    }
+
+    @FXML
+    private void solveClick(javafx.event.ActionEvent event) {
+        try {
+            f = new PtsFunc();
+            g = new PolynFunc(secondFunc.getText());
+            for (PtsRow row : firstFuncPts) {
+                f.addPoint(row.getX(), row.getY());
+            }
+            fw = new TwoFuncWork(f,g,new Dichotomy());
+            Point[] interPts = fw.findInters();
+            resTableInit(interPts);
+        }catch(WrongFunctionFormatException ex){
+            showError("Wrong format of function");
+        }
+    }
+
+    @FXML
+    private void addPtClick(javafx.event.ActionEvent event) {
+
+    }
+
+    private static void showError(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(message);
+        alert.showAndWait();
+    }
+
+    public static FileChooser getFileChooser(String title) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File("."));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("XML files (*.xml)", "*.xml"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All files (*.*)", "*.*"));
+        fileChooser.setTitle(title);
+        return fileChooser;
+    }
+
+    @FXML
+    private void doOpen(javafx.event.ActionEvent event) {
+        FileChooser fileChooser = getFileChooser("Open XML file");
+        File file;
+        if ((file = fileChooser.showOpenDialog(null)) != null) {
+            try {
+                fw.readFromFile(file.getCanonicalPath());
+                f = (PtsFunc)fw.getF();
+                g = (PolynFunc) fw.getG();
+                secondFunc.setText(g.getFunc());
+                ptsTableInit();
+            } catch (IOException e) {
+                showError("No such file");
+            }
+        }
     }
 }

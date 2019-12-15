@@ -31,7 +31,9 @@
           <menus>
             <Menu mnemonicParsing="false" text="File">
               <items>
-                <MenuItem mnemonicParsing="false" text="Close" />
+                <MenuItem mnemonicParsing="false" text="New" />
+                <MenuItem mnemonicParsing="false" onAction="#doOpen" text="Open" />
+                <MenuItem disable="false" mnemonicParsing="false" text="Save as" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Edit">
@@ -52,7 +54,7 @@
             <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Y" fx:id="yPts" />
           </columns>
         </TableView>
-        <Button fx:id="addPtBtn" layoutX="182.0" layoutY="153.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="150.0" text="Add point">
+        <Button fx:id="addPtBtn" layoutX="182.0" layoutY="153.0" mnemonicParsing="false" onAction="#addPtClick" prefHeight="24.0" prefWidth="150.0" text="Add point">
           <font>
             <Font size="15.0" fx:id="x2" />
           </font>
@@ -73,7 +75,7 @@
           </columns>
         </TableView>
         <Text font="$x1" layoutX="17.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Roots:" />
-        <Button fx:id="Solve" font="$x2" layoutX="182.0" layoutY="499.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="150.0" text="Solve" />
+        <Button fx:id="Solve" font="$x2" layoutX="182.0" layoutY="499.0" mnemonicParsing="false" onAction="#solveClick" prefHeight="24.0" prefWidth="150.0" text="Solve" />
       </children>
     </Pane>
   </left>

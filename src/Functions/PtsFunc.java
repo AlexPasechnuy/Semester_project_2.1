@@ -1,18 +1,18 @@
 package Functions;
 
 import InterpolMethods.Interpol;
+import InterpolMethods.LangrangePolyn;
 
 public class PtsFunc extends AbsFunc {
     private Point[] pts = {};
-    int size;
-    Interpol inter;
+    int size = 0;
+    Interpol inter = new LangrangePolyn();
 
     public int getPtsNum(){return pts.length;}
 
     public PtsFunc(double[] xs, double[] ys, Interpol inter){
         if(xs.length != ys.length){throw new RuntimeException("Different sizes of array");}
-        size = xs.length;
-        for(int i = 0; i < size; i++){
+        for(int i = 0; i < xs.length; i++){
             addPoint(xs[i], ys[i]);
         }
         this.inter = inter;
@@ -36,6 +36,7 @@ public class PtsFunc extends AbsFunc {
         System.arraycopy(pts, 0, p1, 0, pts.length);
         p1[pts.length] = new Point(x, y);
         pts = p1;
+        size++;
     }
 
     public double getMinX(){
