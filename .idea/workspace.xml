@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7074dec2-93a0-4f8b-973b-4b4eb2ac5710" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sem_proj_2.1/Functions/PtsFunc.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sem_proj_2.1/Functions/PtsFunc.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sem_proj_2.1/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sem_proj_2.1/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sem_proj_2.1/TwoFuncWork.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sem_proj_2.1/UI/Solver.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sem_proj_2.1/UI/Solver.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sem_proj_2.1/UI/SolverConroller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sem_proj_2.1/UI/SolverConroller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Functions/PolynFunc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Functions/PolynFunc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Functions/PtsFunc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Functions/PtsFunc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TwoFuncWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TwoFuncWork/TwoFuncWork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Solver.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Solver.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/SolverConroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/SolverConroller.java" afterDir="false" />
-    </list>
+    <list default="true" id="7074dec2-93a0-4f8b-973b-4b4eb2ac5710" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,8 +23,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UI/SolverConroller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="50" column="13" lean-forward="true" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+            <state relative-caret-position="322">
+              <caret line="77" column="10" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1937#1938#0" expanded="true" />
@@ -251,7 +238,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576435184202" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576439421503" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/JAXBProject" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -355,16 +342,15 @@
       <workItem from="1575538640214" duration="419000" />
       <workItem from="1576254795573" duration="7270000" />
       <workItem from="1576337168369" duration="1600000" />
-      <workItem from="1576409398766" duration="9541000" />
+      <workItem from="1576409398766" duration="10778000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76057000" />
+    <option name="totallyTimeSpent" value="77294000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1087" y="-541" width="1095" height="967" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2763285" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -596,8 +582,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/SolverConroller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="50" column="13" lean-forward="true" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+        <state relative-caret-position="322">
+          <caret line="77" column="10" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1937#1938#0" expanded="true" />

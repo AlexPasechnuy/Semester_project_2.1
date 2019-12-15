@@ -55,8 +55,8 @@ public class SolverConroller implements Initializable {
 
     private void ptsTableInit(){
         firstFuncPts = FXCollections.observableArrayList();
-        for(int i = 0; i < f.getPtsNum(); i++){
-            firstFuncPts.add(new PtsRow(f.getPoint(i).getX(),f.getPoint(i).getY()));
+        for(int i = 0; i < f.getPtsNum(); i++) {
+            firstFuncPts.add(new PtsRow(f.getPoint(i).getX(), f.getPoint(i).getY()));
         }
         pointsTable.setItems(firstFuncPts);
         xPts.setCellValueFactory(new PropertyValueFactory<>("x"));
@@ -72,11 +72,7 @@ public class SolverConroller implements Initializable {
     }
 
     private void updateX(TableColumn.CellEditEvent<PtsRow, Double> t) {
-        PtsRow temp = t.getTableView().getItems().get(t.getTablePosition().getRow());
-        System.out.println(t.getTablePosition().getRow());
-        temp.setX(t.getNewValue());
         firstFuncPts.get(t.getTablePosition().getRow()).setX(t.getNewValue());
-        System.out.println(t.getNewValue());
     }
 
     private void updateY(TableColumn.CellEditEvent<PtsRow, Double> t) {
