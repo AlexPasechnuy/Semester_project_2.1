@@ -128,7 +128,8 @@ public class SolverConroller implements Initializable {
 
     @FXML
     private void addPtClick(javafx.event.ActionEvent event) {
-
+        f.addPoint(0,0);
+        ptsTableInit();
     }
 
     @FXML
