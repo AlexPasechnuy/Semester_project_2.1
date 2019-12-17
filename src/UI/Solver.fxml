@@ -75,7 +75,9 @@
           </columns>
         </TableView>
         <Text font="$x1" layoutX="17.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Roots:" />
-        <Button fx:id="Solve" font="$x2" layoutX="182.0" layoutY="499.0" mnemonicParsing="false" onAction="#solveClick" prefHeight="24.0" prefWidth="150.0" text="Solve" />
+        <Button fx:id="Solve" font="$x2" layoutX="181.0" layoutY="547.0" mnemonicParsing="false" onAction="#solveClick" prefHeight="24.0" prefWidth="150.0" text="Solve" />
+        <TextField fx:id="fromText" layoutX="182.0" layoutY="412.0" prefWidth="150.0" promptText="From" />
+        <TextField fx:id="toText" layoutX="182.0" layoutY="456.0" prefWidth="150.0" promptText="To" />
       </children>
     </Pane>
   </left>

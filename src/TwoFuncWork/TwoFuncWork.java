@@ -1,5 +1,6 @@
 package TwoFuncWork;
 
+import Exceptions.CalculateBoundsException;
 import Exceptions.WrongFunctionFormatException;
 import FindIntersMethods.Dichotomy;
 import FindIntersMethods.FindInters;
@@ -45,7 +46,7 @@ public class TwoFuncWork {
 
     public AbsFunc getG(){return g;}
 
-    private double getFrom(){
+    public double getFrom(){
         if (f instanceof PtsFunc){
             return ((PtsFunc) f).getMinX();
         }
@@ -57,7 +58,7 @@ public class TwoFuncWork {
         }
     }
 
-    private double getTo(){
+    public double getTo(){
         if (f instanceof PtsFunc){
             return ((PtsFunc) f).getMaxX();
         }
@@ -78,7 +79,9 @@ public class TwoFuncWork {
     public TwoFuncWork(){  }
 
 
-    public Point[] findInters(double from, double to) throws WrongFunctionFormatException {
+    public Point[] findInters(double from, double to) throws WrongFunctionFormatException, CalculateBoundsException {
+        if(from > getTo() || to < getFrom() ){throw new CalculateBoundsException();
+        }
         from = Math.max(getFrom(), from);
         to = Math.min(getTo(), to);
         double fRes, gRes;
@@ -109,7 +112,7 @@ public class TwoFuncWork {
     }
 
 
-    public Point[] findInters() throws WrongFunctionFormatException{
+    public Point[] findInters() throws WrongFunctionFormatException, CalculateBoundsException{
         return findInters(getFrom(), getTo());
     }
 

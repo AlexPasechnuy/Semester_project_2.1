@@ -96,7 +96,7 @@ public class Main {
             for (int i = 0; i < interPoints.length; i++) {
                 System.out.println(interPoints[i].toString());
             }
-        }catch(WrongFunctionFormatException ex){
+        }catch(Exception ex){
             System.out.println(ex.getMessage());
         }
     }

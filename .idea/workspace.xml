@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7074dec2-93a0-4f8b-973b-4b4eb2ac5710" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Functions/PtsFunc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Functions/PtsFunc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TwoFuncWork/TwoFuncWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TwoFuncWork/TwoFuncWork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/Solver.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Solver.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/SolverConroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/SolverConroller.java" afterDir="false" />
     </list>
@@ -18,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Exceptions/WrongFunctionFormatException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="51">
+              <caret line="3" selection-start-line="3" selection-end-line="5" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -27,22 +29,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UI/SolverConroller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+            <state relative-caret-position="970">
+              <caret line="124" column="86" selection-start-line="124" selection-start-column="86" selection-end-line="124" selection-end-column="86" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1937#1938#0" expanded="true" />
-                <element signature="e#1967#1968#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Functions/Point.java">
+        <entry file="file://$PROJECT_DIR$/src/Exceptions/CalculateBoundsException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="55" />
+            <state relative-caret-position="51">
+              <caret line="4" column="64" selection-start-line="4" selection-start-column="64" selection-end-line="4" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -59,12 +59,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Functions/PtsFunc.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
+            <state relative-caret-position="561">
               <caret line="35" column="14" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#695#696#0" expanded="true" />
-                <element signature="e#737#738#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -72,12 +70,12 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UI/Solver.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-553">
-              <caret line="11" column="190" selection-start-line="11" selection-start-column="190" selection-end-line="11" selection-end-column="190" />
+            <state relative-caret-position="1326">
+              <caret line="78" column="34" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
             </state>
           </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -92,8 +90,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="94" column="23" selection-start-line="94" selection-start-column="12" selection-end-line="94" selection-end-column="23" />
+            <state relative-caret-position="1035">
+              <caret line="88" column="59" lean-forward="true" selection-start-line="88" selection-start-column="59" selection-end-line="88" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,8 +102,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TwoFuncWork/TwoFuncWork.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="146" selection-start-line="146" selection-end-line="146" />
+            <state relative-caret-position="1105">
+              <caret line="114" column="93" selection-start-line="114" selection-start-column="93" selection-end-line="114" selection-end-column="93" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,8 +114,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Functions/PolynFunc.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+            <state relative-caret-position="153">
+              <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -134,6 +132,11 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>system</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -178,19 +181,20 @@
         <option value="$PROJECT_DIR$/eqs2.xml" />
         <option value="$PROJECT_DIR$/eqs3.xml" />
         <option value="$PROJECT_DIR$/eqs4.xml" />
-        <option value="$PROJECT_DIR$/src/UI/Solver.fxml" />
         <option value="$PROJECT_DIR$/src/TwoFuncWork.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Functions/PolynFunc.java" />
-        <option value="$PROJECT_DIR$/src/TwoFuncWork/TwoFuncWork.java" />
         <option value="$PROJECT_DIR$/src/Functions/PtsFunc.java" />
+        <option value="$PROJECT_DIR$/src/UI/Solver.fxml" />
+        <option value="$PROJECT_DIR$/src/Exceptions/CalculateBoundsException.java" />
+        <option value="$PROJECT_DIR$/src/TwoFuncWork/TwoFuncWork.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/UI/SolverConroller.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-1087" />
-    <option name="y" value="-541" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1160" />
+    <option name="y" value="-562" />
     <option name="width" value="1095" />
     <option name="height" value="967" />
   </component>
@@ -202,8 +206,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -215,6 +219,12 @@
               <item name="Sem_proj_2.1" type="b2602c69:ProjectViewProjectNode" />
               <item name="Sem_proj_2.1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sem_proj_2.1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sem_proj_2.1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Exceptions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Sem_proj_2.1" type="b2602c69:ProjectViewProjectNode" />
@@ -243,7 +253,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576442367831" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576616087666" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/JAXBProject" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -347,18 +357,18 @@
       <workItem from="1575538640214" duration="419000" />
       <workItem from="1576254795573" duration="7270000" />
       <workItem from="1576337168369" duration="1600000" />
-      <workItem from="1576409398766" duration="13918000" />
+      <workItem from="1576409398766" duration="13974000" />
+      <workItem from="1576611098766" duration="3203000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80434000" />
+    <option name="totallyTimeSpent" value="83693000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1087" y="-541" width="1095" height="967" extended-state="0" />
-    <editor active="true" />
+    <frame x="-1088" y="-549" width="1096" height="1936" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2763285" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27606177" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -367,8 +377,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32977527" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.19112207" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4352651" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.19101124" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.43483147" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -509,10 +519,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Exceptions/WrongFunctionFormatException.java">
+    <entry file="file://$PROJECT_DIR$/src/Functions/Point.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="544">
+          <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -523,20 +533,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="94" column="23" selection-start-line="94" selection-start-column="12" selection-end-line="94" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Functions/PolynFunc.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        <state relative-caret-position="153">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -544,12 +544,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/Solver.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-553">
-          <caret line="11" column="190" selection-start-line="11" selection-start-column="190" selection-end-line="11" selection-end-column="190" />
+        <state relative-caret-position="1326">
+          <caret line="78" column="34" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/SolverFX.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -558,43 +558,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Functions/Point.java">
+    <entry file="file://$PROJECT_DIR$/src/Functions/PtsFunc.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TwoFuncWork/TwoFuncWork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="146" selection-start-line="146" selection-end-line="146" />
+        <state relative-caret-position="561">
+          <caret line="35" column="14" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Functions/PtsFunc.java">
+    <entry file="file://$PROJECT_DIR$/src/Exceptions/WrongFunctionFormatException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="35" column="14" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="14" />
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Exceptions/CalculateBoundsException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="4" column="64" selection-start-line="4" selection-start-column="64" selection-end-line="4" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="88" column="59" lean-forward="true" selection-start-line="88" selection-start-column="59" selection-end-line="88" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#737#738#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TwoFuncWork/TwoFuncWork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="114" column="93" selection-start-line="114" selection-start-column="93" selection-end-line="114" selection-end-column="93" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/SolverConroller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+        <state relative-caret-position="970">
+          <caret line="124" column="86" selection-start-line="124" selection-start-column="86" selection-end-line="124" selection-end-column="86" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1937#1938#0" expanded="true" />
-            <element signature="e#1967#1968#0" expanded="true" />
           </folding>
         </state>
       </provider>

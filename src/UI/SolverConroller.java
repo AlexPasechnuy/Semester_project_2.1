@@ -1,5 +1,6 @@
 package UI;
 
+import Exceptions.CalculateBoundsException;
 import Exceptions.WrongFunctionFormatException;
 import FindIntersMethods.Dichotomy;
 import Functions.AbsFunc;
@@ -45,15 +46,13 @@ public class SolverConroller implements Initializable {
     ObservableList<PtsRow> firstFuncPts;
 
     @FXML private TableView pointsTable;
-    @FXML private  TableColumn<PtsRow, Double> xPts;
-    @FXML private TableColumn<PtsRow, Double> yPts;
-    @FXML private Button addPtBtn;
+    @FXML private  TableColumn<PtsRow, Double> xPts, yPts;
+    @FXML private Button addPtBtn, Solve;
     @FXML private TextField secondFunc;
-    @FXML private Button Solve;
     @FXML private TableView resTable;
-    @FXML private TableColumn<PtsRow, Double> xRes;
-    @FXML private TableColumn<PtsRow, Double> yRes;
+    @FXML private TableColumn<PtsRow, Double> xRes, yRes;
     @FXML private BorderPane graphPane;
+    @FXML private TextField fromText, toText;
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
@@ -92,19 +91,38 @@ public class SolverConroller implements Initializable {
         firstFuncPts.get(t.getTablePosition().getRow()).setY(t.getNewValue());
     }
 
+    private void functionsInit(){   //initializes functions by data in
+        f = new PtsFunc();
+        g = new PolynFunc(secondFunc.getText());
+        for (PtsRow row : firstFuncPts) {
+            f.addPoint(row.getX(), row.getY());
+        }
+        fw = new TwoFuncWork(f,g,new Dichotomy());
+    }
+
     @FXML
     private void solveClick(javafx.event.ActionEvent event) {
         try {
-            f = new PtsFunc();
-            g = new PolynFunc(secondFunc.getText());
-            for (PtsRow row : firstFuncPts) {
-                f.addPoint(row.getX(), row.getY());
+            functionsInit();
+            double from, to;
+            if(fromText.getText().isEmpty()) {
+                from = fw.getFrom();
+            }else{
+                from = Double.parseDouble(fromText.getText());
             }
-            fw = new TwoFuncWork(f,g,new Dichotomy());
-            Point[] interPts = fw.findInters();
+            if(toText.getText().isEmpty()){
+                to = fw.getTo();
+            }else{
+                to = Double.parseDouble(toText.getText());
+            }
+            Point[] interPts = fw.findInters(from,to);
             resTableInit(interPts);
         }catch(WrongFunctionFormatException ex){
             showError("Wrong format of function");
+        }catch(NumberFormatException ex){
+            showError("FROM or TO is not a number");
+        }catch(CalculateBoundsException ex){
+            showError("User's boundaries have no intersection with function boundaries");
         }
     }
 
