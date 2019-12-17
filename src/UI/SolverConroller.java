@@ -131,9 +131,31 @@ public class SolverConroller implements Initializable {
 
     }
 
+    @FXML
+    private void saveClick(javafx.event.ActionEvent event) {
+        functionsInit();
+        FileChooser fileChooser = getFileChooser("Save XML file");
+        File file;
+        if ((file = fileChooser.showSaveDialog(null)) != null) {
+            try {
+                fw.writeToFile(file.getCanonicalPath());
+                showMessage("Results are saved");
+            } catch (Exception e) {
+                showError("Error write to file");
+            }
+        }
+    }
+
     private static void showError(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
+        alert.setHeaderText(message);
+        alert.showAndWait();
+    }
+
+    private static void showMessage(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("");
         alert.setHeaderText(message);
         alert.showAndWait();
     }

@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7074dec2-93a0-4f8b-973b-4b4eb2ac5710" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TwoFuncWork/TwoFuncWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TwoFuncWork/TwoFuncWork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Solver.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Solver.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/SolverConroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/SolverConroller.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -29,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UI/SolverConroller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="970">
-              <caret line="124" column="86" selection-start-line="124" selection-start-column="86" selection-end-line="124" selection-end-column="86" />
+            <state relative-caret-position="919">
+              <caret line="159" column="5" selection-start-line="159" selection-start-column="5" selection-end-line="159" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -193,10 +189,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1160" />
-    <option name="y" value="-562" />
-    <option name="width" value="1095" />
-    <option name="height" value="967" />
+    <option name="x" value="-1088" />
+    <option name="y" value="-549" />
+    <option name="width" value="1096" />
+    <option name="height" value="1936" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -253,7 +249,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576616087666" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576616857783" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/JAXBProject" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -358,12 +354,12 @@
       <workItem from="1576254795573" duration="7270000" />
       <workItem from="1576337168369" duration="1600000" />
       <workItem from="1576409398766" duration="13974000" />
-      <workItem from="1576611098766" duration="3203000" />
+      <workItem from="1576611098766" duration="3779000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83693000" />
+    <option name="totallyTimeSpent" value="84269000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1088" y="-549" width="1096" height="1936" extended-state="6" />
@@ -604,8 +600,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/SolverConroller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="970">
-          <caret line="124" column="86" selection-start-line="124" selection-start-column="86" selection-end-line="124" selection-end-column="86" />
+        <state relative-caret-position="919">
+          <caret line="159" column="5" selection-start-line="159" selection-start-column="5" selection-end-line="159" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
