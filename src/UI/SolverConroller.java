@@ -51,7 +51,7 @@ public class SolverConroller implements Initializable {
     ObservableList<PtsRow> firstFuncPts;
     double xFrom, xTo;
 
-    @FXML private TableView pointsTable;
+    @FXML private TableView<PtsRow> ptsTable;
     @FXML private  TableColumn<PtsRow, Double> xPts, yPts;
     @FXML private Button addPtBtn, Solve;
     @FXML private TextField secondFunc;
@@ -67,11 +67,7 @@ public class SolverConroller implements Initializable {
     }
 
     private void ptsTableInit(){
-        firstFuncPts = FXCollections.observableArrayList();
-        for(int i = 0; i < f.getPtsNum(); i++) {
-            firstFuncPts.add(new PtsRow(f.getPoint(i).getX(), f.getPoint(i).getY()));
-        }
-        pointsTable.setItems(firstFuncPts);
+        ptsTable.setItems(firstFuncPts);
         xPts.setCellValueFactory(new PropertyValueFactory<>("x"));
         xPts.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
         xPts.setOnEditCommit(t->updateX(t));
@@ -98,7 +94,7 @@ public class SolverConroller implements Initializable {
         firstFuncPts.get(t.getTablePosition().getRow()).setY(t.getNewValue());
     }
 
-    private void functionsInit(){   //initializes functions by data in
+    private void InitFunctions(){   //initializes functions by data in UI windows
         f = new PtsFunc();
         g = new PolynFunc(secondFunc.getText());
         for (PtsRow row : firstFuncPts) {
@@ -107,10 +103,21 @@ public class SolverConroller implements Initializable {
         fw = new TwoFuncWork(f,g,new Dichotomy());
     }
 
+    private void initUI(){
+        f = (PtsFunc)fw.getF();
+        g = (PolynFunc) fw.getG();
+        secondFunc.setText(g.getFunc());
+        firstFuncPts = FXCollections.observableArrayList();
+        for(int i = 0; i < f.getPtsNum(); i++) {
+            firstFuncPts.add(new PtsRow(f.getPoint(i).getX(), f.getPoint(i).getY()));
+        }
+        ptsTableInit();
+    }
+
     @FXML
     private void solveClick(javafx.event.ActionEvent event) {
         try {
-            functionsInit();
+            InitFunctions();
             if(fromText.getText().isEmpty()) {
                 xFrom = fw.getFrom();
             }else{
@@ -144,7 +151,7 @@ public class SolverConroller implements Initializable {
             if (!yAdd.getText().isEmpty()) {
                 y = Double.parseDouble(yAdd.getText());
             }
-            f.addPoint(x,y);
+            firstFuncPts.add(new PtsRow(x,y));
             ptsTableInit();
         }catch(NumberFormatException ex){
             showError("X or Y are not numbers!");
@@ -152,8 +159,15 @@ public class SolverConroller implements Initializable {
     }
 
     @FXML
+    private void delPtClick(javafx.event.ActionEvent event) {
+        int pos = ptsTable.getSelectionModel().getSelectedIndex();
+        firstFuncPts.remove(pos);
+        ptsTableInit();
+    }
+
+    @FXML
     private void saveClick(javafx.event.ActionEvent event) {
-        functionsInit();
+        InitFunctions();
         FileChooser fileChooser = getFileChooser("Save XML file");
         File file;
         if ((file = fileChooser.showSaveDialog(null)) != null) {
@@ -234,10 +248,7 @@ public class SolverConroller implements Initializable {
         if ((file = fileChooser.showOpenDialog(null)) != null) {
             try {
                 fw.readFromFile(file.getCanonicalPath());
-                f = (PtsFunc)fw.getF();
-                g = (PolynFunc) fw.getG();
-                secondFunc.setText(g.getFunc());
-                ptsTableInit();
+                initUI();
             } catch (IOException e) {
                 showError("No such file");
             }
