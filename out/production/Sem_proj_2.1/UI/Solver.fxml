@@ -11,18 +11,7 @@
 
 <BorderPane minHeight="626.0" minWidth="845.0" prefHeight="626.0" prefWidth="845.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="UI.SolverConroller">
   <center>
-    <BorderPane fx:id="graphPane" prefHeight="200.0" prefWidth="200.0">
-      <center>
-        <LineChart id="LineChartNxN">
-          <xAxis>
-            <NumberAxis side="BOTTOM" />
-          </xAxis>
-          <yAxis>
-            <NumberAxis side="LEFT" />
-          </yAxis>
-        </LineChart>
-      </center>
-    </BorderPane>
+    <BorderPane fx:id="graphPane" prefHeight="200.0" prefWidth="200.0" />
   </center>
   <left>
     <Pane prefHeight="626.0" prefWidth="361.0">
@@ -31,14 +20,9 @@
           <menus>
             <Menu mnemonicParsing="false" text="File">
               <items>
-                <MenuItem mnemonicParsing="false" text="New" />
+                <MenuItem mnemonicParsing="false" onAction="#newClick" text="New" />
                 <MenuItem mnemonicParsing="false" onAction="#doOpen" text="Open" />
                 <MenuItem disable="false" mnemonicParsing="false" onAction="#saveClick" text="Save as" />
-              </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Edit">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Delete" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Help">

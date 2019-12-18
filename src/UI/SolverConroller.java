@@ -63,6 +63,10 @@ public class SolverConroller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
+        NumberAxis xAxis = new NumberAxis(-5, 5, 1);
+        NumberAxis yAxis = new NumberAxis(-5, 5, 1);
+        graphPane.getChildren().clear();
+        graphPane.setCenter(new LineChart<Number,Number>(xAxis,yAxis));
         ptsTableInit();
     }
 
@@ -190,6 +194,23 @@ public class SolverConroller implements Initializable {
         alert.showAndWait();
     }
 
+    @FXML
+    private void newClick(javafx.event.ActionEvent event) {
+        f = new PtsFunc();
+        g = new PolynFunc();
+        fw = new TwoFuncWork(f,g, new Dichotomy());
+        resTable.getItems().removeAll();
+        Point[] nulpts = new Point[0];
+        resTableInit(nulpts);
+        fromText.clear();
+        toText.clear();
+        NumberAxis xAxis = new NumberAxis(-5, 5, 1);
+        NumberAxis yAxis = new NumberAxis(-5, 5, 1);
+        graphPane.getChildren().clear();
+        graphPane.setCenter(new LineChart<Number,Number>(xAxis,yAxis));
+        initUI();
+    }
+
     private void constructGraphs(){
         try{
             NumberAxis xAxis = new NumberAxis(xFrom,xTo,(xTo-xFrom)/20);
@@ -249,6 +270,8 @@ public class SolverConroller implements Initializable {
             try {
                 fw.readFromFile(file.getCanonicalPath());
                 initUI();
+                fromText.clear();
+                toText.clear();
             } catch (IOException e) {
                 showError("No such file");
             }
