@@ -82,6 +82,7 @@ public class TwoFuncWork {
     public Point[] findInters(double from, double to) throws WrongFunctionFormatException, CalculateBoundsException {
         if(from > getTo() || to < getFrom() ){throw new CalculateBoundsException();
         }
+        double dif;
         from = Math.max(getFrom(), from);
         to = Math.min(getTo(), to);
         double fRes, gRes;
@@ -95,7 +96,7 @@ public class TwoFuncWork {
             gRes = g.solve(x);
             checkBoundY(fRes);
             checkBoundY(gRes);
-            if(Math.abs(fRes - gRes) < eps*3){
+            if((dif = Math.abs(fRes - gRes)) < eps*3){
                 inters = Arrays.copyOf(inters, inters.length + 1);
                 inters[inters.length - 1] = new Point(x, gRes);
                 while(Math.abs(fRes - gRes) < eps*3){
@@ -104,6 +105,9 @@ public class TwoFuncWork {
                     x = findInters.solve(from, from+eps, f, g);
                     fRes = f.solve(x);
                     gRes = g.solve(x);
+                    if(Math.abs(fRes - gRes) < dif){
+                        inters[inters.length - 1] = new Point(x, gRes);
+                    }
                     from += eps;
                 }
             }
