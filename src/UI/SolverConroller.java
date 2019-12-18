@@ -53,6 +53,7 @@ public class SolverConroller implements Initializable {
     @FXML private TableColumn<PtsRow, Double> xRes, yRes;
     @FXML private BorderPane graphPane;
     @FXML private TextField fromText, toText;
+    @FXML private TextField xAdd, yAdd;
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
@@ -128,8 +129,20 @@ public class SolverConroller implements Initializable {
 
     @FXML
     private void addPtClick(javafx.event.ActionEvent event) {
-        f.addPoint(0,0);
-        ptsTableInit();
+        double x = 0;
+        double y = 0;
+        try {
+            if (!xAdd.getText().isEmpty()) {
+                x = Double.parseDouble(xAdd.getText());
+            }
+            if (!yAdd.getText().isEmpty()) {
+                y = Double.parseDouble(yAdd.getText());
+            }
+            f.addPoint(x,y);
+            ptsTableInit();
+        }catch(NumberFormatException ex){
+            showError("X or Y are not numbers!");
+        }
     }
 
     @FXML

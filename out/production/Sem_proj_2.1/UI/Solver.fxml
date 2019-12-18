@@ -78,6 +78,8 @@
         <Button fx:id="Solve" font="$x2" layoutX="181.0" layoutY="547.0" mnemonicParsing="false" onAction="#solveClick" prefHeight="24.0" prefWidth="150.0" text="Solve" />
         <TextField fx:id="fromText" layoutX="182.0" layoutY="412.0" prefWidth="150.0" promptText="From" />
         <TextField fx:id="toText" layoutX="182.0" layoutY="456.0" prefWidth="150.0" promptText="To" />
+        <TextField fx:id="xAdd" layoutX="181.0" layoutY="81.0" prefWidth="148.0" promptText="X" />
+        <TextField fx:id="yAdd" layoutX="181.0" layoutY="127.0" prefWidth="148.0" promptText="Y" />
       </children>
     </Pane>
   </left>
