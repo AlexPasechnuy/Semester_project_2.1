@@ -166,6 +166,16 @@ public class SolverConroller implements Initializable {
         }
     }
 
+    @FXML
+    private void aboutClick(javafx.event.ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("About program");
+        alert.setHeaderText("Program calculates intersections of two functions and constructs graphs\n" +
+                "Written by student of 1.KN201.8g, Alex Pasechnuy\n" +
+                "Email: \"AlexPasechnuy@gmail.com\"");
+        alert.showAndWait();
+    }
+
     private void constructGraphs(){
         try{
             NumberAxis xAxis = new NumberAxis(xFrom,xTo,(xTo-xFrom)/20);
@@ -174,7 +184,7 @@ public class SolverConroller implements Initializable {
             newChart.setCreateSymbols(false);
             graphPane.getChildren().clear();
             graphPane.getChildren().add(newChart);
-            double step = abs((xFrom-xTo) / 100);
+            double step = (xTo-xFrom) / 100;
             XYChart.Series<Number,Number> fSeries = new XYChart.Series<>();
             XYChart.Series<Number,Number> gSeries = new XYChart.Series<>();
             for(double x = xFrom;x <= xTo;x+=step){

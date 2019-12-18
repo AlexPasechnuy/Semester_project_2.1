@@ -9,7 +9,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane minHeight="600.0" minWidth="500.0" prefHeight="626.0" prefWidth="845.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="UI.SolverConroller">
+<BorderPane minHeight="626.0" minWidth="845.0" prefHeight="626.0" prefWidth="845.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="UI.SolverConroller">
   <center>
     <BorderPane fx:id="graphPane" prefHeight="200.0" prefWidth="200.0">
       <center>
@@ -43,7 +43,7 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Help">
               <items>
-                <MenuItem mnemonicParsing="false" text="About" />
+                <MenuItem mnemonicParsing="false" onAction="#aboutClick" text="About" />
               </items>
             </Menu>
           </menus>
