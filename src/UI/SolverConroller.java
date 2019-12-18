@@ -13,6 +13,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -25,6 +28,8 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static java.lang.Math.abs;
 
 public class SolverConroller implements Initializable {
     public class PtsRow{
@@ -44,6 +49,7 @@ public class SolverConroller implements Initializable {
     PolynFunc g = new PolynFunc();
     TwoFuncWork fw = new TwoFuncWork();
     ObservableList<PtsRow> firstFuncPts;
+    double xFrom, xTo;
 
     @FXML private TableView pointsTable;
     @FXML private  TableColumn<PtsRow, Double> xPts, yPts;
@@ -105,19 +111,19 @@ public class SolverConroller implements Initializable {
     private void solveClick(javafx.event.ActionEvent event) {
         try {
             functionsInit();
-            double from, to;
             if(fromText.getText().isEmpty()) {
-                from = fw.getFrom();
+                xFrom = fw.getFrom();
             }else{
-                from = Double.parseDouble(fromText.getText());
+                xFrom = Double.parseDouble(fromText.getText());
             }
             if(toText.getText().isEmpty()){
-                to = fw.getTo();
+                xTo = fw.getTo();
             }else{
-                to = Double.parseDouble(toText.getText());
+                xTo = Double.parseDouble(toText.getText());
             }
-            Point[] interPts = fw.findInters(from,to);
+            Point[] interPts = fw.findInters(xFrom,xTo);
             resTableInit(interPts);
+            constructGraphs();
         }catch(WrongFunctionFormatException ex){
             showError("Wrong format of function");
         }catch(NumberFormatException ex){
@@ -157,6 +163,34 @@ public class SolverConroller implements Initializable {
             } catch (Exception e) {
                 showError("Error write to file");
             }
+        }
+    }
+
+    private void constructGraphs(){
+        try{
+            NumberAxis xAxis = new NumberAxis(xFrom,xTo,(xTo-xFrom)/20);
+            NumberAxis yAxis = new NumberAxis(fw.getMinY(),fw.getMaxY(),(fw.getMaxY()- fw.getMinY())/20);
+            LineChart<Number,Number> newChart = new LineChart<>(xAxis,yAxis);
+            newChart.setCreateSymbols(false);
+            graphPane.getChildren().clear();
+            graphPane.getChildren().add(newChart);
+            double step = abs((xFrom-xTo) / 100);
+            XYChart.Series<Number,Number> fSeries = new XYChart.Series<>();
+            XYChart.Series<Number,Number> gSeries = new XYChart.Series<>();
+            for(double x = xFrom;x <= xTo;x+=step){
+                fSeries.getData().add(new XYChart.Data<>(x,f.solve(x)));
+                gSeries.getData().add(new XYChart.Data<>(x,g.solve(x)));
+            }
+            fSeries.getData().add(new XYChart.Data<>(xTo,f.solve(xTo)));
+            gSeries.getData().add(new XYChart.Data<>(xTo,g.solve(xTo)));
+            newChart.getData().addAll(fSeries, gSeries);
+            graphPane.getChildren().clear();
+            graphPane.setCenter(newChart);
+        }catch (Exception ex){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error");
+            alert.showAndWait();
         }
     }
 
