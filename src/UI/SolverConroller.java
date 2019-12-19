@@ -24,7 +24,9 @@ import javafx.stage.FileChooser;
 import javafx.util.converter.DoubleStringConverter;
 
 import javax.xml.bind.JAXBException;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -118,21 +120,25 @@ public class SolverConroller implements Initializable {
         ptsTableInit();
     }
 
+    private Point[] findInters() throws WrongFunctionFormatException, CalculateBoundsException{
+             if (fromText.getText().isEmpty()) {
+                xFrom = fw.getFrom();
+            } else {
+                xFrom = Double.parseDouble(fromText.getText());
+            }
+            if (toText.getText().isEmpty()) {
+                xTo = fw.getTo();
+            } else {
+                xTo = Double.parseDouble(toText.getText());
+            }
+            return fw.findInters(xFrom, xTo);
+    }
+
     @FXML
     private void solveClick(javafx.event.ActionEvent event) {
         try {
             InitFunctions();
-            if(fromText.getText().isEmpty()) {
-                xFrom = fw.getFrom();
-            }else{
-                xFrom = Double.parseDouble(fromText.getText());
-            }
-            if(toText.getText().isEmpty()){
-                xTo = fw.getTo();
-            }else{
-                xTo = Double.parseDouble(toText.getText());
-            }
-            Point[] interPts = fw.findInters(xFrom,xTo);
+            Point[] interPts = findInters();
             resTableInit(interPts);
             constructGraphs();
         }catch(WrongFunctionFormatException ex){
@@ -211,6 +217,24 @@ public class SolverConroller implements Initializable {
         initUI();
     }
 
+    @FXML
+    private void saveReportClick(javafx.event.ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File("."));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("HTML files (*.xml)", "*.html"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All files (*.*)", "*.*"));
+        fileChooser.setTitle("Save report");
+        File file;
+        if ((file = fileChooser.showSaveDialog(null)) != null) {
+            try {
+                saveHTML(file, "");
+                showMessage("Report is saved");
+            } catch (Exception e) {
+                showError("Error saving report");
+            }
+        }
+    }
+
     private void constructGraphs(){
         try{
             NumberAxis xAxis = new NumberAxis(xFrom,xTo,(xTo-xFrom)/20);
@@ -260,6 +284,119 @@ public class SolverConroller implements Initializable {
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All files (*.*)", "*.*"));
         fileChooser.setTitle(title);
         return fileChooser;
+    }
+
+    public void saveHTML(File file, String encodedImage) throws WrongFunctionFormatException, CalculateBoundsException {
+        try {
+            FileWriter writer = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(writer);
+            String content = ("<!DOCTYPE html>\n" +
+                    "<html lang=\"en\">\n" +
+                    "<head>\n" +
+                    "    <meta charset=\"UTF-8\">\n" +
+                    "    <title>Results</title>\n" +
+                    "    <style>\n" +
+                    "        td, th\n" +
+                    "        {\n" +
+                    "              border: 1px solid black;\n" +
+                    "              border-collapse: collapse;\n" +
+                    "              width: 50%;\n" +
+                    "        }\n" +
+                    "        table\n" +
+                    "        {\n" +
+                    "            width: 20vw; text-align: center;\n" +
+                    "        }\n" +
+                    "        .container\n" +
+                    "        {\n" +
+                    "            margin: auto;\n" +
+                    "            display: flex;\n" +
+                    "            flex-wrap: wrap;\n" +
+                    "        }\n" +
+                    "        .table_wrapper\n" +
+                    "        {\n" +
+                    "            display: flex;\n" +
+                    "            width: 50%;\n" +
+                    "            flex-direction: row;\n" +
+                    "        }\n" +
+                    "        .screenshot\n" +
+                    "        {\n" +
+                    "            position: relative;\n" +
+                    "            display: flex;\n" +
+                    "            width: 50%;\n" +
+                    "        }\n" +
+                    "        .roots\n" +
+                    "        {\n" +
+                    "            margin-left: 10vh;\n" +
+                    "        }\n" +
+                    "    </style>\n" +
+                    "</head>\n" +
+                    "<body>\n" +
+                    "      <div class=\"container\">\n" +
+                    "       <div class=\"table_wrapper\">\n" +
+                    "        <table>\n" +
+                    "          <tr>\n" +
+                    "              <th colspan = \"2\">f(x)</th>\n" +
+                    "          </tr>\n" +
+                    "          <tr>\n" +
+                    "            <th>x</th>\n" +
+                    "            <th>y</th>\n" +
+                    "          </tr>\n");
+            for(int i = 0; i < firstFuncPts.size();i++)
+            {
+                content +=("<tr>\n" +
+                        "<td>" + firstFuncPts.get(i).getX() + "</td>\n" +
+                        "<td>"+ firstFuncPts.get(i).getY() +"</td>\n" +
+                        "</tr>");
+            }
+            content+=(
+                    " </table>\n" +
+                            "          <table>\n" +
+                            "          <tr>\n" +
+                            "              <th colspan = \"2\">g(x)</th>\n" +
+                            "          </tr>\n" //+
+//                            "          <tr>\n" +
+//                            "            <th>x</th>\n" +
+//                            "            <th>y</th>\n" +
+//                            "          </tr>\n"
+            );
+                content+=("<tr>\n" + "<td>" + g.getFunc() + "</tr>");
+            content+=(
+                    "          </table>\n" +
+                            "        </div>\n" +
+                            "        <div class=\"screenshot\">\n" +
+
+                            "            <img src=\"data:image/png;base64, ");
+            content+= encodedImage + "\">\n";
+            content+=(" </div>\n" +
+                    "        <div class=\"roots\">\n" +
+                    "            <table>\n" +
+                    "                <tr>\n" +
+
+                    "                <th>Roots</th>\n" +
+                    "                </tr>");
+            //  for(int i = 0; i < sc.getRoots().size();i++)
+            //   {
+            //     content+=("\n<tr><td>"+sc.getRoots().get(i)+"\n</td></tr>\n");
+            //  }
+            ObservableList<PtsRow> res = resTable.getItems();
+            for(int i = 0; i < res.size();i++)
+            {
+                content +=("<tr>\n" +
+                        "<td>" + res.get(i).getX() + "</td>\n" +
+                        "<td>"+ res.get(i).getY() +"</td>\n" +
+                        "</tr>");
+            }
+            content+=("            </table>\n" +
+                    "        </div>\n" +
+                    "        </div>\n" +
+                    "</body>\n" +
+                    "</html>");
+            bw.write(content);
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @FXML

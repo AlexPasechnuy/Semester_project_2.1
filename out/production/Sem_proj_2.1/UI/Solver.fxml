@@ -23,6 +23,7 @@
                 <MenuItem mnemonicParsing="false" onAction="#newClick" text="New" />
                 <MenuItem mnemonicParsing="false" onAction="#doOpen" text="Open" />
                 <MenuItem disable="false" mnemonicParsing="false" onAction="#saveClick" text="Save as" />
+                <MenuItem disable="false" mnemonicParsing="false" onAction="#saveReportClick" text="Save report" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Help">
