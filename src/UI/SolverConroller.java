@@ -12,6 +12,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.SnapshotParameters;
@@ -68,6 +69,8 @@ public class SolverConroller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
+        ActionEvent event = new ActionEvent();
+        newClick(event);
         NumberAxis xAxis = new NumberAxis(-5, 5, 1);
         NumberAxis yAxis = new NumberAxis(-5, 5, 1);
         graphPane.getChildren().clear();
@@ -408,7 +411,7 @@ public class SolverConroller implements Initializable {
     private void saveReportClick(javafx.event.ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setInitialDirectory(new File("."));
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("HTML files (*.xml)", "*.html"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("HTML files (*.html)", "*.html"));
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All files (*.*)", "*.*"));
         fileChooser.setTitle("Save report");
         File file;
