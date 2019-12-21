@@ -66,6 +66,7 @@ public class SolverConroller implements Initializable {
     @FXML private BorderPane graphPane;
     @FXML private TextField fromText, toText;
     @FXML private TextField xAdd, yAdd;
+    @FXML private TextField rootsNum;
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
@@ -126,25 +127,27 @@ public class SolverConroller implements Initializable {
         ptsTableInit();
     }
 
-    private Point[] findInters() throws WrongFunctionFormatException, CalculateBoundsException{
-             if (fromText.getText().isEmpty()) {
-                xFrom = fw.getFrom();
-            } else {
-                xFrom = Double.parseDouble(fromText.getText());
-            }
-            if (toText.getText().isEmpty()) {
-                xTo = fw.getTo();
-            } else {
-                xTo = Double.parseDouble(toText.getText());
-            }
-            return fw.findInters(xFrom, xTo);
-    }
-
     @FXML
     private void solveClick(javafx.event.ActionEvent event) {
         try {
             InitFunctions();
-            Point[] interPts = findInters();
+            if (fromText.getText().isEmpty()) {
+                xFrom = fw.getFrom();
+            } else {
+                xFrom = Math.max(Double.parseDouble(fromText.getText()), fw.getFrom());
+            }
+            if (toText.getText().isEmpty()) {
+                xTo = fw.getTo();
+            } else {
+                xTo = Math.min(Double.parseDouble(toText.getText()),fw.getTo());
+            }
+            Point[] interPts = fw.findInters(xFrom,xTo);
+            if(interPts.length == 0){
+                rootsNum.setText("No roots");
+            }
+            else{
+                rootsNum.setText(interPts.length + " roots");
+            }
             resTableInit(interPts);
             constructGraphs();
         }catch(WrongFunctionFormatException ex){
@@ -224,6 +227,7 @@ public class SolverConroller implements Initializable {
         resTableInit(nulpts);
         fromText.clear();
         toText.clear();
+        rootsNum.clear();
         NumberAxis xAxis = new NumberAxis(-5, 5, 1);
         NumberAxis yAxis = new NumberAxis(-5, 5, 1);
         graphPane.getChildren().clear();
@@ -431,10 +435,9 @@ public class SolverConroller implements Initializable {
         File file;
         if ((file = fileChooser.showOpenDialog(null)) != null) {
             try {
+                newClick(event);
                 fw.readFromFile(file.getCanonicalPath());
                 initUI();
-                fromText.clear();
-                toText.clear();
             } catch (IOException e) {
                 showError("No such file");
             }
