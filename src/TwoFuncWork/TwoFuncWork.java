@@ -1,6 +1,7 @@
 package TwoFuncWork;
 
 import Exceptions.CalculateBoundsException;
+import Exceptions.SameFuncsException;
 import Exceptions.WrongFunctionFormatException;
 import FindIntersMethods.Dichotomy;
 import FindIntersMethods.FindInters;
@@ -78,7 +79,7 @@ public class TwoFuncWork {
     public TwoFuncWork(){  }
 
 
-    public Point[] findInters(double from, double to) throws WrongFunctionFormatException, CalculateBoundsException {
+    public Point[] findInters(double from, double to) throws WrongFunctionFormatException, CalculateBoundsException, SameFuncsException {
         if(from > getTo() || to < getFrom() ){throw new CalculateBoundsException();
         }
         double dif;
@@ -89,8 +90,8 @@ public class TwoFuncWork {
         eps = (to - from)/100;
         Point[] inters = new Point[0];
         //dichotomy method for finding intersections
-        for(;from < to; from += eps){
-            double x = findInters.solve(from, from+eps, f, g);
+        for(double i = from;i < to; i += eps){
+            double x = findInters.solve(i, i+eps, f, g);
             fRes = f.solve(x);
             gRes = g.solve(x);
             checkBoundY(fRes);
@@ -98,16 +99,23 @@ public class TwoFuncWork {
             if((dif = Math.abs(fRes - gRes)) < eps*3){
                 inters = Arrays.copyOf(inters, inters.length + 1);
                 inters[inters.length - 1] = new Point(x, gRes);
+                double beforeLoop = i;
                 while(Math.abs(fRes - gRes) < eps*3){
                     checkBoundY(fRes);
                     checkBoundY(gRes);
-                    x = findInters.solve(from, from+eps, f, g);
+                    x = findInters.solve(i, i+eps, f, g);
                     fRes = f.solve(x);
                     gRes = g.solve(x);
                     if(Math.abs(fRes - gRes) < dif){
                         inters[inters.length - 1] = new Point(x, gRes);
                     }
-                    from += eps;
+                    i += eps;
+                    if(i >= to){
+                        if(beforeLoop == from){
+                            throw new SameFuncsException();
+                        }
+                        break;
+                    }
                 }
             }
         }
@@ -115,7 +123,7 @@ public class TwoFuncWork {
     }
 
 
-    public Point[] findInters() throws WrongFunctionFormatException, CalculateBoundsException{
+    public Point[] findInters() throws WrongFunctionFormatException, CalculateBoundsException, SameFuncsException{
         return findInters(getFrom(), getTo());
     }
 

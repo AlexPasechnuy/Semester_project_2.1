@@ -1,6 +1,7 @@
 package UI;
 
 import Exceptions.CalculateBoundsException;
+import Exceptions.SameFuncsException;
 import Exceptions.WrongFunctionFormatException;
 import FindIntersMethods.Dichotomy;
 import Functions.AbsFunc;
@@ -149,13 +150,16 @@ public class SolverConroller implements Initializable {
                 rootsNum.setText(interPts.length + " roots");
             }
             resTableInit(interPts);
-            constructGraphs();
         }catch(WrongFunctionFormatException ex){
             showError("Wrong format of function");
         }catch(NumberFormatException ex){
             showError("FROM or TO is not a number");
         }catch(CalculateBoundsException ex){
             showError("User's boundaries have no intersection with function boundaries");
+        }catch(SameFuncsException ex){
+            rootsNum.setText(ex.getMessage());
+        }finally {
+            constructGraphs();
         }
     }
 
