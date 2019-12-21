@@ -9,6 +9,7 @@ import Functions.Point;
 import Functions.PolynFunc;
 import Functions.PtsFunc;
 import TwoFuncWork.TwoFuncWork;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -239,6 +240,11 @@ public class SolverConroller implements Initializable {
         initUI();
     }
 
+    @FXML
+    private void exitClick(javafx.event.ActionEvent event) {
+        Platform.exit();
+    }
+
     private void constructGraphs(){
         try{
             NumberAxis xAxis = new NumberAxis(xFrom,xTo,(xTo-xFrom)/20);
@@ -249,7 +255,9 @@ public class SolverConroller implements Initializable {
             graphPane.getChildren().add(newChart);
             double step = (xTo-xFrom) / 100;
             XYChart.Series<Number,Number> fSeries = new XYChart.Series<>();
+            fSeries.setName("f(x)");
             XYChart.Series<Number,Number> gSeries = new XYChart.Series<>();
+            gSeries.setName("g(x)");
             for(double x = xFrom;x <= xTo;x+=step){
                 fSeries.getData().add(new XYChart.Data<>(x,f.solve(x)));
                 gSeries.getData().add(new XYChart.Data<>(x,g.solve(x)));
@@ -308,7 +316,7 @@ public class SolverConroller implements Initializable {
 
         return null;
     }
-    public void saveHTML(File file, String encodedImage) throws WrongFunctionFormatException, CalculateBoundsException {
+    public void saveHTML(File file, String encodedImage){
         try {
             FileWriter writer = new FileWriter(file);
             BufferedWriter bw = new BufferedWriter(writer);

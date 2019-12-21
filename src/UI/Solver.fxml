@@ -24,6 +24,7 @@
                 <MenuItem mnemonicParsing="false" onAction="#doOpen" text="Open" />
                 <MenuItem disable="false" mnemonicParsing="false" onAction="#saveClick" text="Save as" />
                 <MenuItem disable="false" mnemonicParsing="false" onAction="#saveReportClick" text="Save report" />
+                <MenuItem disable="false" mnemonicParsing="false" onAction="#exitClick" text="Exit" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Help">
@@ -44,13 +45,13 @@
             <Font size="15.0" fx:id="x2" />
           </font>
         </Button>
-        <Text layoutX="17.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First function:">
+        <Text layoutX="17.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="f(x):">
           <font>
             <Font size="16.0" fx:id="x1" />
           </font>
         </Text>
         <Separator layoutX="14.0" layoutY="273.0" prefWidth="330.0" />
-        <Text font="$x1" layoutX="17.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Second function:" />
+        <Text font="$x1" layoutX="17.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="g(x):" />
         <TextField fx:id="secondFunc" layoutX="13.0" layoutY="313.0" prefHeight="25.0" prefWidth="318.0" promptText="Enter function here" />
         <Separator layoutX="16.0" layoutY="345.0" prefWidth="330.0" />
         <TableView fx:id="resTable" layoutX="17.0" layoutY="381.0" prefHeight="200.0" prefWidth="150.0">
