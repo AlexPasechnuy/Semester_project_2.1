@@ -173,9 +173,16 @@ public class SolverConroller implements Initializable {
 
     @FXML
     private void delPtClick(javafx.event.ActionEvent event) {
-        int pos = ptsTable.getSelectionModel().getSelectedIndex();
-        firstFuncPts.remove(pos);
-        ptsTableInit();
+        try {
+            int pos = ptsTable.getSelectionModel().getSelectedIndex();
+            if (pos == -1) {
+                throw new NullPointerException();
+            }
+            firstFuncPts.remove(pos);
+            ptsTableInit();
+        }catch(NullPointerException ex){
+            showError("Please, choose point to delete!");
+        }
     }
 
     @FXML
