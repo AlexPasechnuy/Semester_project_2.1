@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7074dec2-93a0-4f8b-973b-4b4eb2ac5710" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Sem_proj_2.1/TwoFuncWork/TwoFuncWork.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sem_proj_2.1/TwoFuncWork/TwoFuncWork.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TwoFuncWork/TwoFuncWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TwoFuncWork/TwoFuncWork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Solver.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Solver.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/SolverConroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/SolverConroller.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -29,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UI/SolverConroller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1153">
-              <caret line="385" column="44" selection-start-line="385" selection-start-column="44" selection-end-line="385" selection-end-column="44" />
+            <state relative-caret-position="464">
+              <caret line="176" selection-start-line="176" selection-end-line="176" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -70,12 +67,12 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UI/Solver.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
+            <state relative-caret-position="595">
               <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
             </state>
           </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -102,7 +99,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TwoFuncWork/TwoFuncWork.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1582">
+            <state relative-caret-position="3060">
               <caret line="203" column="5" selection-start-line="203" selection-start-column="5" selection-end-line="203" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -207,7 +204,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -248,12 +244,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576762699419" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576926863789" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Sem_proj_2.1" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -360,17 +357,19 @@
       <workItem from="1576409398766" duration="13974000" />
       <workItem from="1576611098766" duration="4321000" />
       <workItem from="1576692826223" duration="7841000" />
-      <workItem from="1576757040963" duration="3688000" />
+      <workItem from="1576757040963" duration="3740000" />
+      <workItem from="1576922816511" duration="3857000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96340000" />
+    <option name="totallyTimeSpent" value="100249000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1088" y="-549" width="1096" height="1936" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28764477" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2934363" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -379,7 +378,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32977527" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.19101124" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19101124" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.43483147" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -434,6 +433,18 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/UI/SolverConroller.java</url>
+          <line>176</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/EqSolve/SetOfPtsEq/AbsPtsFunc.java" />
@@ -560,12 +571,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/Solver.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
+        <state relative-caret-position="595">
           <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/SolverFX.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -584,6 +595,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/TwoFuncWork/TwoFuncWork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3060">
+          <caret line="203" column="5" selection-start-line="203" selection-start-column="5" selection-end-line="203" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Functions/PolynFunc.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -594,20 +615,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TwoFuncWork/TwoFuncWork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1582">
-          <caret line="203" column="5" selection-start-line="203" selection-start-column="5" selection-end-line="203" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/SolverConroller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1153">
-          <caret line="385" column="44" selection-start-line="385" selection-start-column="44" selection-end-line="385" selection-end-column="44" />
+        <state relative-caret-position="464">
+          <caret line="176" selection-start-line="176" selection-end-line="176" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

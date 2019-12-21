@@ -11,24 +11,27 @@ import TwoFuncWork.TwoFuncWork;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.util.converter.DoubleStringConverter;
 
+import javax.imageio.ImageIO;
 import javax.xml.bind.JAXBException;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.awt.image.RenderedImage;
+import java.io.*;
 import java.net.URL;
+import java.util.Base64;
 import java.util.ResourceBundle;
 
 import static java.lang.Math.abs;
@@ -196,7 +199,8 @@ public class SolverConroller implements Initializable {
         alert.setTitle("About program");
         alert.setHeaderText("Program calculates intersections of two functions and constructs graphs\n" +
                 "Written by student of 1.KN201.8g, Alex Pasechnuy\n" +
-                "Email: \"AlexPasechnuy@gmail.com\"");
+                "Email: \"AlexPasechnuy@gmail.com\"\n"+
+                "Thank you for using my program❤❤❤");
         alert.showAndWait();
     }
 
@@ -215,24 +219,6 @@ public class SolverConroller implements Initializable {
         graphPane.getChildren().clear();
         graphPane.setCenter(new LineChart<Number,Number>(xAxis,yAxis));
         initUI();
-    }
-
-    @FXML
-    private void saveReportClick(javafx.event.ActionEvent event) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File("."));
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("HTML files (*.xml)", "*.html"));
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All files (*.*)", "*.*"));
-        fileChooser.setTitle("Save report");
-        File file;
-        if ((file = fileChooser.showSaveDialog(null)) != null) {
-            try {
-                saveHTML(file, "");
-                showMessage("Report is saved");
-            } catch (Exception e) {
-                showError("Error saving report");
-            }
-        }
     }
 
     private void constructGraphs(){
@@ -286,6 +272,24 @@ public class SolverConroller implements Initializable {
         return fileChooser;
     }
 
+    public String getImageBytes()
+    {
+        WritableImage image =  graphPane.snapshot(new SnapshotParameters(), null);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        RenderedImage img = SwingFXUtils.fromFXImage(image, null);
+        try
+        {
+            ImageIO.write(img, "PNG", stream);
+            byte[] buf = stream.toByteArray();
+            stream.close();
+            String image2 = Base64.getEncoder().encodeToString(buf);
+            return image2;
+
+        }
+        catch (Exception e) { }
+
+        return null;
+    }
     public void saveHTML(File file, String encodedImage) throws WrongFunctionFormatException, CalculateBoundsException {
         try {
             FileWriter writer = new FileWriter(file);
@@ -294,7 +298,7 @@ public class SolverConroller implements Initializable {
                     "<html lang=\"en\">\n" +
                     "<head>\n" +
                     "    <meta charset=\"UTF-8\">\n" +
-                    "    <title>Results</title>\n" +
+                    "    <title>Report</title>\n" +
                     "    <style>\n" +
                     "        td, th\n" +
                     "        {\n" +
@@ -348,36 +352,24 @@ public class SolverConroller implements Initializable {
                         "<td>"+ firstFuncPts.get(i).getY() +"</td>\n" +
                         "</tr>");
             }
+            content+= "<br>" + "</br>";
             content+=(
                     " </table>\n" +
                             "          <table>\n" +
                             "          <tr>\n" +
                             "              <th colspan = \"2\">g(x)</th>\n" +
-                            "          </tr>\n" //+
-//                            "          <tr>\n" +
-//                            "            <th>x</th>\n" +
-//                            "            <th>y</th>\n" +
-//                            "          </tr>\n"
-            );
-                content+=("<tr>\n" + "<td>" + g.getFunc() + "</tr>");
+                            "          </tr>\n");
+            content+=("<tr>\n" + "<td>" + g.getFunc() + "</tr>");
             content+=(
-                    "          </table>\n" +
-                            "        </div>\n" +
-                            "        <div class=\"screenshot\">\n" +
-
-                            "            <img src=\"data:image/png;base64, ");
-            content+= encodedImage + "\">\n";
-            content+=(" </div>\n" +
-                    "        <div class=\"roots\">\n" +
-                    "            <table>\n" +
-                    "                <tr>\n" +
-
-                    "                <th>Roots</th>\n" +
-                    "                </tr>");
-            //  for(int i = 0; i < sc.getRoots().size();i++)
-            //   {
-            //     content+=("\n<tr><td>"+sc.getRoots().get(i)+"\n</td></tr>\n");
-            //  }
+                    " </table>\n" +
+                            "          <table>\n" +
+                            "          <tr>\n" +
+                            "              <th colspan = \"2\">Roots</th>\n" +
+                            "          </tr>\n" +
+                            "          <tr>\n" +
+                            "            <th>x</th>\n" +
+                            "            <th>y</th>\n" +
+                            "          </tr>\n");
             ObservableList<PtsRow> res = resTable.getItems();
             for(int i = 0; i < res.size();i++)
             {
@@ -386,6 +378,13 @@ public class SolverConroller implements Initializable {
                         "<td>"+ res.get(i).getY() +"</td>\n" +
                         "</tr>");
             }
+            content+=(
+                    "          </table>\n" +
+                            "        </div>\n" +
+                            "        <div class=\"screenshot\">\n" +
+
+                            "            <img src=\"data:image/png;base64, ");
+            content+= encodedImage + "\">\n";
             content+=("            </table>\n" +
                     "        </div>\n" +
                     "        </div>\n" +
@@ -396,7 +395,24 @@ public class SolverConroller implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
+    @FXML
+    private void saveReportClick(javafx.event.ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File("."));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("HTML files (*.xml)", "*.html"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All files (*.*)", "*.*"));
+        fileChooser.setTitle("Save report");
+        File file;
+        if ((file = fileChooser.showSaveDialog(null)) != null) {
+            try {
+                saveHTML(file, getImageBytes());
+                showMessage("Report is saved");
+            } catch (Exception e) {
+                showError("Error saving report");
+            }
+        }
     }
 
     @FXML
