@@ -17,6 +17,7 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
@@ -26,6 +27,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import javafx.util.converter.DoubleStringConverter;
 
@@ -284,9 +286,9 @@ public class SolverConroller implements Initializable {
             fSeries.setName("f(x)");
             XYChart.Series<Number,Number> gSeries = new XYChart.Series<>();
             gSeries.setName("g(x)");
-            for(double x = xFrom;x <= xTo;x+=step){
-                fSeries.getData().add(new XYChart.Data<>(x,f.solve(x)));
-                gSeries.getData().add(new XYChart.Data<>(x,g.solve(x)));
+            for(double x = xFrom;x <= xTo;x+=step) {
+                fSeries.getData().add(new XYChart.Data<>(x, f.solve(x)));
+                gSeries.getData().add(new XYChart.Data<>(x, g.solve(x)));
             }
             fSeries.getData().add(new XYChart.Data<>(xTo,f.solve(xTo)));
             gSeries.getData().add(new XYChart.Data<>(xTo,g.solve(xTo)));
@@ -360,7 +362,7 @@ public class SolverConroller implements Initializable {
                     "        }\n" +
                     "        table\n" +
                     "        {\n" +
-                    "            width: 20vw; text-align: center;\n" +
+                    "            width: 100%; text-align: center;\n" +
                     "        }\n" +
                     "        .container\n" +
                     "        {\n" +
@@ -371,14 +373,14 @@ public class SolverConroller implements Initializable {
                     "        .table_wrapper\n" +
                     "        {\n" +
                     "            display: flex;\n" +
-                    "            width: 50%;\n" +
+                    "            width: 100%;\n" +
                     "            flex-direction: row;\n" +
                     "        }\n" +
                     "        .screenshot\n" +
                     "        {\n" +
                     "            position: relative;\n" +
                     "            display: flex;\n" +
-                    "            width: 50%;\n" +
+                    "            width: 100%;\n" +
                     "        }\n" +
                     "        .roots\n" +
                     "        {\n" +
@@ -430,11 +432,11 @@ public class SolverConroller implements Initializable {
                         "<td>"+ res.get(i).getY() +"</td>\n" +
                         "</tr>");
             }
+            content += "<br /><br />";
             content+=(
                     "          </table>\n" +
                             "        </div>\n" +
                             "        <div class=\"screenshot\">\n" +
-
                             "            <img src=\"data:image/png;base64, ");
             content+= encodedImage + "\">\n";
             content+=("            </table>\n" +
