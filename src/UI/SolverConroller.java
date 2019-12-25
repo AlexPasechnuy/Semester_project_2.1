@@ -73,11 +73,6 @@ public class SolverConroller implements Initializable {
     public void initialize(URL location, ResourceBundle resources){
         ActionEvent event = new ActionEvent();
         newClick(event);
-        NumberAxis xAxis = new NumberAxis(-5, 5, 1);
-        NumberAxis yAxis = new NumberAxis(-5, 5, 1);
-        graphPane.getChildren().clear();
-        graphPane.setCenter(new LineChart<Number,Number>(xAxis,yAxis));
-        ptsTableInit();
     }
 
     private void ptsTableInit(){
@@ -131,6 +126,9 @@ public class SolverConroller implements Initializable {
     @FXML
     private void solveClick(javafx.event.ActionEvent event) {
         try {
+            if(firstFuncPts.size() == 0 || secondFunc.getText().isEmpty()){
+                throw new NullPointerException();
+            }
             InitFunctions();
             if (fromText.getText().isEmpty()) {
                 xFrom = fw.getFrom();
@@ -158,8 +156,9 @@ public class SolverConroller implements Initializable {
             showError("User's boundaries have no intersection with function boundaries");
         }catch(SameFuncsException ex){
             rootsNum.setText(ex.getMessage());
-        }finally {
             constructGraphs();
+        }catch(NullPointerException ex) {
+            showError("f(x) or g(x) are not defined");
         }
     }
 
@@ -244,6 +243,8 @@ public class SolverConroller implements Initializable {
         rootsNum.clear();
         NumberAxis xAxis = new NumberAxis(-5, 5, 1);
         NumberAxis yAxis = new NumberAxis(-5, 5, 1);
+        xAxis.setLabel("x");
+        yAxis.setLabel("y");
         graphPane.getChildren().clear();
         graphPane.setCenter(new LineChart<Number,Number>(xAxis,yAxis));
         initUI();
@@ -258,6 +259,8 @@ public class SolverConroller implements Initializable {
         try{
             NumberAxis xAxis = new NumberAxis(xFrom,xTo,(xTo-xFrom)/20);
             NumberAxis yAxis = new NumberAxis(fw.getMinY(),fw.getMaxY(),(fw.getMaxY()- fw.getMinY())/20);
+            xAxis.setLabel("x");
+            yAxis.setLabel("y");
             LineChart<Number,Number> newChart = new LineChart<>(xAxis,yAxis);
             newChart.setCreateSymbols(false);
             graphPane.getChildren().clear();

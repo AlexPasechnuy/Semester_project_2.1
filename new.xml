@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><twoEqsWork><PtsEq><xs>-5.0 -4.0 -2.0 </xs><ys>84.0 52.0 12.0 </ys></PtsEq><PolynEq><func>3*Math.pow(x,2)+3*x</func></PolynEq></twoEqsWork>
