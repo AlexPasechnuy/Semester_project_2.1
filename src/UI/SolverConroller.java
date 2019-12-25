@@ -223,28 +223,6 @@ public class SolverConroller implements Initializable {
 
     @FXML
     private void helpClick(javafx.event.ActionEvent event) {
-//        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//        alert.setTitle("Help");
-//        alert.setHeaderText("File:\n" +
-//                "   -\"New\" - create new empty file\n" +
-//                "   -\"Open\" - open existing XML file\n" +
-//                "   -\"Save as\" - save existing project as XML file\n" +
-//                "   -\"Save report\" - saves report in HTML file\n" +
-//                "   -\"Exit\" - close program\n" +
-//                "Help:\n"+
-//                "   -\"About\" - about program and developer\n" +
-//                "   -\"Help\" - this window)))\n" +
-//                "Main fields:\n" +
-//                "   -f(x) table represents points of first functions\n" +
-//                "   -X and Y near f(x) table created for input of x and y to add in table\n" +
-//                "   -g(x) text represents second function in JavaScript syntax view\n" +
-//                "   -from and to represents custom calculation boundaries\n" +
-//                "   -graph in right part represents f(x) and g(x) in its boundaries\n" +
-//                "Main buttons:\n" +
-//                "   -\"Add point\" - adds point (0,0) if from and to are empty and (from,to) otherwise\n" +
-//                "   -\"Delete point\" - deletes selected point from f(x) table\n" +
-//                "   -\"Solve\" - finds intersections and constructs graphs\n");
-//        alert.showAndWait();
         try {
             File file = new File("src\\HelpFiles\\Main.html");
             Desktop.getDesktop().open(file);
