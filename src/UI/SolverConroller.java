@@ -56,6 +56,7 @@ public class SolverConroller implements Initializable {
     PolynFunc g = new PolynFunc();
     TwoFuncWork fw = new TwoFuncWork();
     ObservableList<PtsRow> firstFuncPts;
+    ObservableList<PtsRow> resPts;
     double xFrom, xTo;
 
     @FXML private TableView<PtsRow> ptsTable;
@@ -86,11 +87,11 @@ public class SolverConroller implements Initializable {
     }
 
     private void resTableInit(Point[] results){
-        ObservableList<PtsRow> res= FXCollections.observableArrayList();
+        resPts= FXCollections.observableArrayList();
         for(int i = 0; i < results.length; i++) {
-            res.add(new PtsRow((double)Math.round(results[i].getX() * 1000)/ 1000, (double)Math.round(results[i].getY() * 1000)/ 1000));
+            resPts.add(new PtsRow((double)Math.round(results[i].getX() * 1000)/ 1000, (double)Math.round(results[i].getY() * 1000)/ 1000));
         }
-        resTable.setItems(res);
+        resTable.setItems(resPts);
         xRes.setCellValueFactory(new PropertyValueFactory<>("x"));
         yRes.setCellValueFactory(new PropertyValueFactory<>("y"));
     }
@@ -278,6 +279,12 @@ public class SolverConroller implements Initializable {
             fSeries.getData().add(new XYChart.Data<>(xTo,f.solve(xTo)));
             gSeries.getData().add(new XYChart.Data<>(xTo,g.solve(xTo)));
             newChart.getData().addAll(fSeries, gSeries);
+            for(int i = 0; i < resPts.size(); i++){
+                XYChart.Series<Number,Number> newSeries = new XYChart.Series<>();
+                newSeries.getData().add(new XYChart.Data<>(resPts.get(i).getX(), resPts.get(i).getY()));
+                newSeries.setName("Intersection" + (i+1));
+                newChart.getData().add(newSeries);
+            }
             graphPane.getChildren().clear();
             graphPane.setCenter(newChart);
         }catch (Exception ex){
