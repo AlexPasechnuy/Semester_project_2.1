@@ -148,6 +148,7 @@ public class SolverConroller implements Initializable {
                 rootsNum.setText(interPts.length + " roots");
             }
             resTableInit(interPts);
+            constructGraphs();
         }catch(WrongFunctionFormatException ex){
             showError("Wrong format of function");
         }catch(NumberFormatException ex){
